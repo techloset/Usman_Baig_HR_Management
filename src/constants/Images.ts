@@ -1,5 +1,6 @@
 import iconLogo from "../../public/images/Logo.png";
 import iconApps from "../../public/images/Apps.png";
+import iconUser from "../../public/images/User.png";
 import iconUsers from "../../public/images/Users.png";
 import iconBriefcase from "../../public/images/Briefcase.png";
 import iconCommunity from "../../public/images/Community.png";
@@ -28,8 +29,11 @@ import iconTrash from "../../public/images/Trash.png";
 import iconEdit from "../../public/images/Edit.png";
 import iconArrow from "../../public/images/Arrow.png";
 import iconCamera from "../../public/images/Camera.png";
+import iconUpload from "../../public/images/Upload.png";
+import iconLock from "../../public/images/Lock.png";
 export {
   iconBell,
+  iconLock,
   iconSearch,
   iconLogo,
   iconApps,
@@ -51,6 +55,7 @@ export {
   iconArrowDown,
   profilePhoto,
   iconSun,
+  iconUser,
   iconMoon,
   iconAdd,
   iconFilter,
@@ -59,4 +64,5 @@ export {
   iconEdit,
   iconArrow,
   iconCamera,
+  iconUpload,
 };

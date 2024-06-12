@@ -21,6 +21,7 @@ const config: Config = {
         borderGrey: "#A2A1A833",
         customOrange: "#E25319",
         customGrey: "#A2A1A8",
+        successLight: "#34C759",
         dangerBackground: "#F45B691A",
         successBackground: "#3FC28A1A",
       },

@@ -1,19 +1,15 @@
 "use client";
-import { iconArrowDown, profilePhoto } from "@/constants/Images";
 import Image from "next/image";
-import { useState } from "react";
+import useDropDown from "./useDropDown";
+import { iconArrowDown, profilePhoto } from "@/constants/Images";
 
 const DropDown = () => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleDropdown = () => {
-    setIsOpen(!isOpen);
-  };
+  const { toggleDropdown, isOpen } = useDropDown();
 
   return (
     <div className="relative">
       <button
-        className="flex items-center pe-[5px] justify-between h-[50px] ms-5 w-[184px] rounded border-borderGrey border-[1px] focus:outline-none "
+        className="flex items-center pe-[5px] justify-between h-[50px] ms-5 w-[184px] rounded border-borderGrey border-[1px] focus:outline-none"
         onClick={toggleDropdown}
       >
         <div className="flex ms-[5px]">

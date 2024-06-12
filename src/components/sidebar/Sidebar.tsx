@@ -23,7 +23,7 @@ const Sidebar = () => {
               <Link href={`${link.path}`} key={i}>
                 <div
                   className={`${
-                    pathname.match(link.path)
+                    pathname === link.path
                       ? "border-l-[3px] border-customOrange text-customOrange bg-[#E253190D]"
                       : ""
                   } h-[50px] my-[5px] flex`}

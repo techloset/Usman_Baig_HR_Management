@@ -4,17 +4,21 @@ import Header from "../header/Header";
 
 export default function DefaultLayout({
   children,
+  heading,
+  description,
 }: {
   children: React.ReactNode;
+  heading: string;
+  description: string;
 }) {
   return (
     <>
       <div className="flex min-h-screen bg-primaryBlack text-white">
         <Sidebar />
         <div className="flex flex-col w-full">
-          <Header heading={"Hello Lucifer"} description={"Good Morning"} />
+          <Header heading={heading} description={description} />
           <main>
-            <div className="min-h-100vh">{children}</div>
+            <div className="min-h-100vh mb-5">{children}</div>
           </main>
         </div>
       </div>

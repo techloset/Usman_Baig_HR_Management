@@ -6,7 +6,7 @@ import Button from "../button/Button";
 import { EMPLOYEE_DOCUMENTS_PROPS } from "@/types/EmployeeInfoProps";
 
 const Documents = ({ handleClick, option }: EMPLOYEE_DOCUMENTS_PROPS) => {
-  const { handleSubmit } = useDocuments();
+  const {} = useDocuments();
   return (
     <div className="p-[10px]">
       <div className="flex w-full">
@@ -18,11 +18,7 @@ const Documents = ({ handleClick, option }: EMPLOYEE_DOCUMENTS_PROPS) => {
         <UploadFile title={"Upload Experience Letter"} />
       </div>
       <div className="flex flex-row-reverse">
-        <Button
-          handleSubmit={handleSubmit}
-          handleClick={handleClick}
-          option={option}
-        />
+        <Button handleClick={handleClick} option={option} />
       </div>
     </div>
   );

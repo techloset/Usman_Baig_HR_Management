@@ -14,10 +14,15 @@ const PersonalInfomation = ({
   data,
   setData,
 }: EMPLOYEE_PERSONAL_INFO_PROPS) => {
-  const { state, setProfileURL, handleChange, handleSubmit } =
-    usePersonalInfomation();
+  const { state, setProfileURL, handleChange } = usePersonalInfomation({
+    data,
+    setData,
+  });
+  if (!data) {
+    return null;
+  }
   return (
-    <form onSubmit={handleSubmit} className={`flex flex-col`}>
+    <form className={`flex flex-col`}>
       <div className="flex ms-[10px] mb-[10px]">
         <UploadButton
           className="w-[40px] outline-none bg-greyShade"
@@ -25,7 +30,7 @@ const PersonalInfomation = ({
             allowedContent() {
               return `dsdsd`;
             },
-            button(arg) {
+            button() {
               return (
                 <div className="flex mt-auto outline-none focus:outline-none focus:border-none ">
                   <Image src={iconCamera} height={24} width={24} alt="Camera" />
@@ -60,14 +65,14 @@ const PersonalInfomation = ({
       </div>
       <div className="flex w-full">
         <Input
-          value={state.firstName}
+          value={data?.firstName}
           name={"firstName"}
           type={"text"}
           onChange={handleChange}
           placeholder={"First Name"}
         />
         <Input
-          value={state.lastName}
+          value={data?.lastName}
           name={"lastName"}
           type={"text"}
           onChange={handleChange}
@@ -76,15 +81,15 @@ const PersonalInfomation = ({
       </div>
       <div className="flex w-full">
         <Input
-          value={state.number}
-          name={"number"}
+          value={data?.mobileNumber}
+          name={"mobileNumber"}
           type={"tel"}
           onChange={handleChange}
           placeholder={"Mobile Number"}
         />
         <Input
-          value={state.email}
-          name={"email"}
+          value={data?.emailAddress}
+          name={"emailAddress"}
           type={"text"}
           onChange={handleChange}
           placeholder={"Email Address"}
@@ -92,8 +97,8 @@ const PersonalInfomation = ({
       </div>
       <div className="flex w-full">
         <Input
-          value={state.dob}
-          name={"dob"}
+          value={data?.dateOfBirth}
+          name={"dateOfBirth"}
           type={"date"}
           onChange={handleChange}
           placeholder={""}
@@ -109,7 +114,7 @@ const PersonalInfomation = ({
       </div>
       <div className="flex w-full">
         <SelectMenu
-          label={!state.gender ? "Gender" : state.gender}
+          label={!data?.gender ? "Gender" : data?.gender}
           options={[
             { label: "Male", value: "male" },
             { label: "Female", value: "female" },
@@ -130,7 +135,7 @@ const PersonalInfomation = ({
       </div>
       <div className="flex w-full">
         <Input
-          value={state.address}
+          value={data?.address}
           name={"address"}
           type={"text"}
           onChange={handleChange}
@@ -158,11 +163,7 @@ const PersonalInfomation = ({
         />
       </div>
       <div className="flex flex-row-reverse">
-        <Button
-          handleSubmit={handleSubmit}
-          handleClick={handleClick}
-          option={option}
-        />
+        <Button handleClick={handleClick} option={option} />
       </div>
     </form>
   );

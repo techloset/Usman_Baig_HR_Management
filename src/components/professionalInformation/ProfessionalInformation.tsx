@@ -1,27 +1,35 @@
 import React from "react";
 import Input from "../input/Input";
-import useProfessionalInformation from "./useProfessionalInformation";
-import InputDropdown from "../inputDropdown/InputDropdown";
 import Button from "../button/Button";
+import SelectMenu from "../selectMenu/SelectMenu";
+import useProfessionalInformation from "./useProfessionalInformation";
 import { EMPLOYEE_PROFESSIONAL_INFO_PROPS } from "@/types/EmployeeInfoProps";
 
 const ProfessionalInformation = ({
   handleClick,
   option,
+  data,
+  setData,
 }: EMPLOYEE_PROFESSIONAL_INFO_PROPS) => {
-  const { state, handleChange, handleSubmit } = useProfessionalInformation();
+  const { state, handleChange } = useProfessionalInformation({
+    data,
+    setData,
+  });
+  if (!data) {
+    return null;
+  }
   return (
-    <form onSubmit={handleSubmit} className={`flex flex-col`}>
+    <form className={`flex flex-col`}>
       <div className="flex w-full">
         <Input
-          value={state.employeeId}
+          value={data?.employeeId}
           name={"employeeId"}
           type={"text"}
           onChange={handleChange}
           placeholder={"employeeId"}
         />
         <Input
-          value={state.userName}
+          value={data?.userName}
           name={"userName"}
           type={"text"}
           onChange={handleChange}
@@ -30,14 +38,14 @@ const ProfessionalInformation = ({
       </div>
       <div className="flex w-full">
         <Input
-          value={state.emplopeeType}
+          value={data?.employmentType}
           name={"emplopeeType"}
           type={"text"}
           onChange={handleChange}
           placeholder={"emplopeeType"}
         />
         <Input
-          value={state.email}
+          value={data?.email}
           name={"email"}
           type={"email"}
           onChange={handleChange}
@@ -46,14 +54,14 @@ const ProfessionalInformation = ({
       </div>
       <div className="flex w-full">
         <Input
-          value={state.department}
+          value={data?.department}
           name={"department"}
           type={"text"}
           onChange={handleChange}
           placeholder={"department"}
         />
         <Input
-          value={state.designation}
+          value={data?.designation}
           name={"designation"}
           type={"text"}
           onChange={handleChange}
@@ -61,13 +69,17 @@ const ProfessionalInformation = ({
         />
       </div>
       <div className="flex w-full">
-        <InputDropdown
+        <SelectMenu
           onChange={handleChange}
           label={"Working Days"}
-          options={[{ label: "Seven", value: "7" }]}
+          options={[
+            { label: "Five", value: "5" },
+            { label: "Six", value: "6" },
+            { label: "Seven", value: "7" },
+          ]}
         />
         <Input
-          value={state.joiningDate}
+          value={data?.joiningDate}
           name={"joiningDate"}
           type={"date"}
           onChange={handleChange}
@@ -75,18 +87,14 @@ const ProfessionalInformation = ({
         />
       </div>
       <div className="flex w-full">
-        <InputDropdown
+        <SelectMenu
           onChange={handleChange}
           label={"Office Location"}
           options={[{ label: "Faisalabad", value: "faisalabad" }]}
         />
       </div>
       <div className="flex flex-row-reverse">
-        <Button
-          handleSubmit={handleSubmit}
-          handleClick={handleClick}
-          option={option}
-        />
+        <Button handleClick={handleClick} option={option} />
       </div>
     </form>
   );

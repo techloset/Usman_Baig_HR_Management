@@ -31,7 +31,7 @@ export type EMPLOYEE_DOCUMENTS_DATA = {
 };
 export type EMPLOYEE_ACCOUNT_ACCESS_DATA = {
   email: string;
-  stackId: string;
+  slackId: string;
   skypeId: string;
   githubId: string;
 };

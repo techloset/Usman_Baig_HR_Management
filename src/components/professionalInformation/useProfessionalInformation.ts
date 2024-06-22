@@ -1,31 +1,28 @@
-import { INITIAL_STATE_PROFESSIONAL_INFO } from "@/constants/IntialStates";
+import { ChangeEvent, useState } from "react";
 import { CustomChangeEvent } from "@/types/InputDropDownProps";
-import { ChangeEvent, FormEvent, useState } from "react";
+import { EMPLOYEE_PROFESSIONAL_DATA } from "@/types/ProfileInformation";
+import { INITIAL_STATE_PROFESSIONAL_INFO } from "@/constants/IntialStates";
 
-const useProfessionalInformation = () => {
+const useProfessionalInformation = ({
+  data,
+  setData,
+}: {
+  data: EMPLOYEE_PROFESSIONAL_DATA | undefined;
+  setData: (data: EMPLOYEE_PROFESSIONAL_DATA) => void;
+}) => {
   const [state, setState] = useState(INITIAL_STATE_PROFESSIONAL_INFO);
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement> | CustomChangeEvent
   ) => {
-    setState((s) => ({ ...s, [e.target.name]: e.target.value }));
-  };
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    const {
-      employeeId,
-      userName,
-      emplopeeType,
-      email,
-      department,
-      designation,
-      workingDays,
-      joiningDate,
-      officeLocation,
-    } = state;
-    console.log("Professional State =>", state);
+    if (data) {
+      setData({
+        ...data,
+        [e.target.name]: e.target.value,
+      });
+    }
   };
 
-  return { state, handleChange, handleSubmit };
+  return { state, handleChange };
 };
 
 export default useProfessionalInformation;

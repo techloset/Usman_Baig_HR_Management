@@ -6,7 +6,7 @@ const useDocuments = () => {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
   };
-  return { handleSubmit };
+  return {};
 };
 
 export default useDocuments;

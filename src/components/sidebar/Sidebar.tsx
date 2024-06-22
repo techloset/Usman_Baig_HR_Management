@@ -10,7 +10,7 @@ const Sidebar = () => {
   const pathname = usePathname();
   return (
     <div
-      className="bg-greyShade m-5 flex  flex-col justify-between pt-[37px]
+      className="bg-greyShade m-5 flex flex-col justify-between pt-[37px]
      rounded-[20px] w-[280px] px-[30px]"
     >
       <div className={`flex flex-col `}>

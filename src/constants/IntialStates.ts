@@ -2,9 +2,9 @@ export const INITIAL_STATE_PERSONAL_INFO = {
   photoURL: "",
   firstName: "",
   lastName: "",
-  number: "",
-  email: "",
-  dob: "",
+  mobileNumber: "",
+  emailAddress: "",
+  dateOfBirth: "",
   maritalStatus: "",
   gender: "",
   nationality: "",
@@ -16,7 +16,7 @@ export const INITIAL_STATE_PERSONAL_INFO = {
 export const INITIAL_STATE_PROFESSIONAL_INFO = {
   employeeId: "",
   userName: "",
-  emplopeeType: "",
+  employmentType: "",
   email: "",
   department: "",
   designation: "",
@@ -32,7 +32,7 @@ export const INITIAL_STATE_ACCOUNT_ACCESS = {
 };
 export const INITIAL_STATE_DOCUMENTS_FILES = {
   appointmentLetter: "",
-  salarySlip: "",
+  salarySlips: "",
   relivingLetter: "",
   experienceLetter: "",
 };

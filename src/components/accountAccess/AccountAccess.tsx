@@ -5,22 +5,30 @@ import Button from "../button/Button";
 import { EMPLOYEE_ACCOUNT_ACCESS_PROPS } from "@/types/EmployeeInfoProps";
 
 const AccountAccess = ({
-  handleClick,
+  data,
   option,
+  setData,
+  handleClick,
 }: EMPLOYEE_ACCOUNT_ACCESS_PROPS) => {
-  const { state, handleChange, handleSubmit } = useAccountAccess();
+  const { state, handleChange } = useAccountAccess({
+    data,
+    setData,
+  });
+  if (!data) {
+    return null;
+  }
   return (
-    <form onSubmit={handleSubmit} className={`flex flex-col`}>
+    <form className={`flex flex-col`}>
       <div className={`flex w-full`}>
         <Input
-          value={state.email}
+          value={data?.email}
           name={"email"}
           type={"email"}
           onChange={handleChange}
           placeholder={"Email Address"}
         />
         <Input
-          value={state.slackId}
+          value={data?.slackId}
           name={"slackId"}
           type={"text"}
           onChange={handleChange}
@@ -29,14 +37,14 @@ const AccountAccess = ({
       </div>
       <div className="flex w-full">
         <Input
-          value={state.skypeId}
+          value={data?.skypeId}
           name={"skypeId"}
           type={"text"}
           onChange={handleChange}
           placeholder={"Enter Skype Id"}
         />
         <Input
-          value={state.githubId}
+          value={data?.githubId}
           name={"githubId"}
           type={"text"}
           onChange={handleChange}
@@ -44,11 +52,7 @@ const AccountAccess = ({
         />
       </div>
       <div className="flex flex-row-reverse">
-        <Button
-          handleSubmit={handleSubmit}
-          handleClick={handleClick}
-          option={option}
-        />
+        <Button handleClick={handleClick} option={option} />
       </div>
     </form>
   );

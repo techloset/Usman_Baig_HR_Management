@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import useAddEmployee from "./useAddEmployee";
 import InfoBar from "@/components/infoBar/InfoBar";
 import Documents from "@/components/documents/Documents";
@@ -7,21 +7,20 @@ import DefaultLayout from "@/components/layouts/DefaultLayout";
 import AccountAccess from "@/components/accountAccess/AccountAccess";
 import PersonalInfomation from "@/components/personalInfomation/PersonalInfomation";
 import ProfessionalInformation from "@/components/professionalInformation/ProfessionalInformation";
-import {
-  EMPLOYEE_ACCOUNT_ACCESS_DATA,
-  EMPLOYEE_DOCUMENTS_DATA,
-  EMPLOYEE_PERSONAL_DATA,
-  EMPLOYEE_PROFESSIONAL_DATA,
-} from "@/types/ProfileInformation";
 
 const page = () => {
-  const [personalInfo, setPersonalInfo] = useState<EMPLOYEE_PERSONAL_DATA>();
-  const [professionalInfo, setProfessionalInfo] =
-    useState<EMPLOYEE_PROFESSIONAL_DATA>();
-  const [documents, setDocuments] = useState<EMPLOYEE_DOCUMENTS_DATA>();
-  const [accountAccess, setAccountAccess] =
-    useState<EMPLOYEE_ACCOUNT_ACCESS_DATA>();
-  const { option, handleClick } = useAddEmployee();
+  const {
+    option,
+    documents,
+    handleClick,
+    setDocuments,
+    personalInfo,
+    accountAccess,
+    setPersonalInfo,
+    setAccountAccess,
+    professionalInfo,
+    setProfessionalInfo,
+  } = useAddEmployee();
   return (
     <DefaultLayout
       heading={"Add New Employee"}

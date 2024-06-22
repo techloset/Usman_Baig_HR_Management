@@ -1,3 +1,4 @@
+"use client";
 import {
   INITIAL_STATE_ACCOUNT_ACCESS,
   INITIAL_STATE_DOCUMENTS_FILES,
@@ -10,7 +11,7 @@ import {
   EMPLOYEE_PERSONAL_DATA,
   EMPLOYEE_PROFESSIONAL_DATA,
 } from "@/types/ProfileInformation";
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 
 const useAddEmployee = () => {
   const [option, setOption] = useState<number>(0);
@@ -24,24 +25,31 @@ const useAddEmployee = () => {
   );
   const [accountAccess, setAccountAccess] =
     useState<EMPLOYEE_ACCOUNT_ACCESS_DATA>(INITIAL_STATE_ACCOUNT_ACCESS);
-  console.log(
-    "States",
-    personalInfo,
-    professionalInfo,
-    accountAccess,
-    documents
-  );
+  const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
+    alert("ready");
+    event.preventDefault();
+    // alert("Go");
+  };
+
+  // const mergedData = {
+  //   presonalInfo: personalInfo,
+  //   professionalInfo: professionalInfo,
+  //   documents: documents,
+  //   accountAccess: accountAccess,
+  // };
+  // console.log("mergedData", mergedData);
 
   const handleClick = (num: number) => {
     setOption(num);
   };
   return {
-    handleClick,
     option,
     personalInfo,
     professionalInfo,
     accountAccess,
     documents,
+    handleClick,
+    handleSubmit,
     setAccountAccess,
     setDocuments,
     setPersonalInfo,

@@ -7,7 +7,7 @@ import DefaultLayout from "@/components/layouts/DefaultLayout";
 import AccountAccess from "@/components/accountAccess/AccountAccess";
 import PersonalInfomation from "@/components/personalInfomation/PersonalInfomation";
 import ProfessionalInformation from "@/components/professionalInformation/ProfessionalInformation";
-import Button from "@/components/button/Button";
+import SubmitButton from "@/components/submitButton/SubmitButton";
 
 const page = () => {
   const {
@@ -15,6 +15,7 @@ const page = () => {
     documents,
     handleClick,
     setDocuments,
+    handleSubmit,
     personalInfo,
     accountAccess,
     setPersonalInfo,
@@ -61,9 +62,11 @@ const page = () => {
               handleClick={handleClick}
               option={option}
             />
-            {/* <div className="flex flex-row-reverse">
-              <Button handleClick={handleClick} option={option} />
-            </div> */}
+            <div className="flex flex-row-reverse">
+              <SubmitButton handleSubmit={handleSubmit} />
+              {/* <button onClick={handleSubmit}>Submit here</button> */}
+              {/* <Button handleClick={handleClick} option={option} /> */}
+            </div>
           </>
         )}
       </div>

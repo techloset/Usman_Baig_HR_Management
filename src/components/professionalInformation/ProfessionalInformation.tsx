@@ -39,7 +39,7 @@ const ProfessionalInformation = ({
       <div className="flex w-full">
         <Input
           value={data?.employmentType}
-          name={"emplopeeType"}
+          name={"employmentType"}
           type={"text"}
           onChange={handleChange}
           placeholder={"emplopeeType"}

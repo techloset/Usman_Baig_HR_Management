@@ -31,38 +31,64 @@ import iconArrow from "../../public/images/Arrow.png";
 import iconCamera from "../../public/images/Camera.png";
 import iconUpload from "../../public/images/Upload.png";
 import iconLock from "../../public/images/Lock.png";
+import iconBriefcaseOrange from "../../public/images/BriefcaseOrange.png";
+import iconDocument from "../../public/images/Document.png";
+import iconDocumentOrange from "../../public/images/DocumentOrange.png";
+import iconLockOrange from "../../public/images/LockOrange.png";
+import iconUserOrange from "../../public/images/UserOrange.png";
+import iconGamil from "../../public/images/Gmail.png";
+import iconProfile from "../../public/images/PersonalProfile.png";
+import iconDownload from "../../public/images/Download.png";
+import iconUserFilled from "../../public/images/UserFilled.png";
+import iconCalenderFilled from "../../public/images/CalendarFilled.png";
+import iconFileFilled from "../../public/images/FileFilled.png";
+import iconFile from "../../public/images/FileOutline.png";
+import iconNotepadFilled from "../../public/images/NotepadFilled.png";
 export {
-  iconBell,
+  iconSun,
+  iconFile,
+  iconAdd,
   iconLock,
-  iconSearch,
   iconLogo,
   iconApps,
+  iconUser,
+  iconBell,
+  iconMoon,
+  iconView,
+  iconEdit,
+  iconNotes,
   iconUsers,
+  iconGamil,
+  iconTrash,
+  iconArrow,
+  OrangeFile,
+  iconSearch,
+  iconCamera,
+  iconFilter,
+  iconUpload,
+  orangeUsers,
+  iconProfile,
+  iconNotepad,
+  iconSettings,
+  iconDocument,
+  iconDownload,
+  iconCalender,
+  profilePhoto,
+  iconRedArrow,
   iconBriefcase,
   iconCommunity,
-  iconCoinDollar,
-  iconCalender,
-  iconCandidates,
-  iconSettings,
-  iconNotes,
-  iconNotepad,
-  orangeUsers,
-  OrangeFile,
-  OrangeBriefcase,
-  OrangeCalender,
-  iconGreenArrow,
-  iconRedArrow,
   iconArrowDown,
-  profilePhoto,
-  iconSun,
-  iconUser,
-  iconMoon,
-  iconAdd,
-  iconFilter,
-  iconView,
-  iconTrash,
-  iconEdit,
-  iconArrow,
-  iconCamera,
-  iconUpload,
+  iconUserOrange,
+  iconUserFilled,
+  iconFileFilled,
+  iconCoinDollar,
+  OrangeCalender,
+  iconCandidates,
+  iconLockOrange,
+  iconGreenArrow,
+  OrangeBriefcase,
+  iconNotepadFilled,
+  iconDocumentOrange,
+  iconCalenderFilled,
+  iconBriefcaseOrange,
 };

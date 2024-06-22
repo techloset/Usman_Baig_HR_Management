@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+import { withUt } from "uploadthing/tw";
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -16,17 +16,19 @@ const config: Config = {
       colors: {
         danger: "#F45B69",
         success: "#3FC28A",
-        greyShade: "#A2A1A80D",
-        primaryBlack: "#131313",
-        borderGrey: "#A2A1A833",
-        customOrange: "#E25319",
+        warning: "#EFBE12",
         customGrey: "#A2A1A8",
+        greyShade: "#A2A1A80D",
+        borderGrey: "#A2A1A833",
+        primaryBlack: "#131313",
+        customOrange: "#E25319",
         successLight: "#34C759",
         dangerBackground: "#F45B691A",
+        warningBackground: "#EFBE121A",
         successBackground: "#3FC28A1A",
       },
     },
   },
   plugins: [],
 };
-export default config;
+export default withUt(config);

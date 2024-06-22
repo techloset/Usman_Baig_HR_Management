@@ -1,11 +1,11 @@
 export const INITIAL_STATE_PERSONAL_INFO = {
+  photoURL: "",
   firstName: "",
   lastName: "",
   number: "",
-  password: "",
   email: "",
   dob: "",
-  status: "",
+  maritalStatus: "",
   gender: "",
   nationality: "",
   address: "",
@@ -29,4 +29,10 @@ export const INITIAL_STATE_ACCOUNT_ACCESS = {
   slackId: "",
   skypeId: "",
   githubId: "",
+};
+export const INITIAL_STATE_DOCUMENTS_FILES = {
+  appointmentLetter: "",
+  salarySlip: "",
+  relivingLetter: "",
+  experienceLetter: "",
 };

@@ -19,7 +19,7 @@ const page = () => {
           <div className="flex">
             <Link
               href={"/employees/addEmployee"}
-              className="flex bg-customOrange ease-in-out hover:text-customOrange duration-300 hover:bg-customDark border-customOrange border-[1px] hover:border-customOrange py-[11px] px-5 rounded-[10px] "
+              className="flex bg-customOrange ease-in-out hover:text-customOrange duration-300 hover:bg-primaryBlack border-customOrange border-[1px] hover:border-customOrange py-[11px] px-5 rounded-[10px] "
             >
               <Image src={iconAdd} alt="iconAdd" />
               <div className="ms-[10px] text-[16px]">Add New Employee</div>

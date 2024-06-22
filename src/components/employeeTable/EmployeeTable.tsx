@@ -10,6 +10,7 @@ import {
   EMPLOYEE_TABLE_DATA,
   EMPLOYEE_TABLE_HEAD,
 } from "@/constants/Constants";
+import Link from "next/link";
 
 const EmployeeTable = () => {
   return (
@@ -54,9 +55,9 @@ const EmployeeTable = () => {
                   </div>
                 </td>
                 <td className="pt-[10px] flex">
-                  <button>
+                  <Link href={"/employees/profile"}>
                     <Image src={iconView} alt="iconView" />
-                  </button>
+                  </Link>
                   <button>
                     <Image src={iconEdit} alt="iconEdit" />
                   </button>

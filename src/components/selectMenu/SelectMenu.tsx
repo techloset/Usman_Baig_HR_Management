@@ -1,0 +1,45 @@
+"use client";
+import React from "react";
+import Image from "next/image";
+import useSelectMenu from "./useSelectMenu";
+import { iconArrowDown } from "@/constants/Images";
+import { INPUT_DROPDOWN_PROPS } from "@/types/InputDropDownProps";
+
+const SelectMenu = ({ label, options, onChange }: INPUT_DROPDOWN_PROPS) => {
+  const { handleOpen, open, handleSelectChange } = useSelectMenu({
+    label,
+    options,
+    onChange,
+  });
+  return (
+    <div className="relative w-full h-14 mx-[10px] m-[10px] rounded-[10px] bg-primaryBlack border-[1px] border-borderGrey">
+      <select
+        onClick={handleOpen}
+        onChange={handleSelectChange}
+        id="countries"
+        className="appearance-none h-full gap-3 pl-4 pr-10 focus:outline-none border-none w-full text-customGrey bg-primaryBlack  rounded-lg"
+      >
+        <option className="custom-option">{label}</option>
+
+        {options.map((options, i) => {
+          return (
+            <option className="custom-option" value={options.value} key={i}>
+              {options.label}
+            </option>
+          );
+        })}
+      </select>
+      <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+        <Image
+          src={iconArrowDown}
+          className={`${
+            open ? "rotate-180" : "rotate-0"
+          } ease-in-out duration-500 me-2`}
+          alt="Arrow Down"
+        />
+      </div>
+    </div>
+  );
+};
+
+export default SelectMenu;

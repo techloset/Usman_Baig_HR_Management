@@ -1,6 +1,11 @@
 import React from "react";
+import { BUTTON_PROPS } from "@/types/ButtonProps";
 
-const Button = () => {
+const Button = ({ handleSubmit, handleClick, option }: BUTTON_PROPS) => {
+  // const value = () => {
+  //   if (option === 3) {
+  //   }
+  // };
   return (
     <div className="mt-5">
       <button
@@ -9,6 +14,11 @@ const Button = () => {
         Cancel
       </button>
       <button
+        onClick={() => {
+          handleSubmit;
+          handleClick(option + 1);
+          console.log("option from button", option + 1);
+        }}
         className={`ms-0 me-[10px] rounded-[10px] py-[13px] px-[27px] bg-customOrange border-customOrange border-[1px]`}
       >
         Next

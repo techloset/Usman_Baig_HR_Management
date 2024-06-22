@@ -1,28 +1,61 @@
 import React from "react";
-import Input from "../input/Input";
-import usePersonalInfomation from "./usePersonalInfomation";
 import Image from "next/image";
+import Input from "../input/Input";
+import Button from "../button/Button";
 import { iconCamera } from "@/constants/Images";
-import InputDropdown from "../inputDropdown/InputDropdown";
+import SelectMenu from "../selectMenu/SelectMenu";
+import { UploadButton } from "@/utils/uploadthing";
+import usePersonalInfomation from "./usePersonalInfomation";
+import { EMPLOYEE_PERSONAL_INFO_PROPS } from "@/types/EmployeeInfoProps";
 
-const PersonalInfomation = ({ display }: { display: string }) => {
-  const { state, handleChange, handleFile, handleClick, hiddenFileInput } =
+const PersonalInfomation = ({
+  handleClick,
+  option,
+  data,
+  setData,
+}: EMPLOYEE_PERSONAL_INFO_PROPS) => {
+  const { state, setProfileURL, handleChange, handleSubmit } =
     usePersonalInfomation();
-
   return (
-    <div className={`${display} flex-col`}>
+    <form onSubmit={handleSubmit} className={`flex flex-col`}>
       <div className="flex ms-[10px] mb-[10px]">
-        <button
-          className="p-[38px] rounded-[10px] border-[1px] border-borderGrey"
-          onClick={handleClick}
-        >
-          <Image src={iconCamera} height={24} width={24} alt="Camera" />
-        </button>
-        <input
-          type="file"
-          onChange={handleFile}
-          ref={hiddenFileInput}
-          style={{ display: "none" }}
+        <UploadButton
+          className="w-[40px] outline-none bg-greyShade"
+          content={{
+            allowedContent() {
+              return `dsdsd`;
+            },
+            button(arg) {
+              return (
+                <div className="flex mt-auto outline-none focus:outline-none focus:border-none ">
+                  <Image src={iconCamera} height={24} width={24} alt="Camera" />
+                </div>
+              );
+            },
+          }}
+          appearance={{
+            container:
+              "rounded-[10px] border-[1px] border-borderGrey h-[100px] w-[100px] m-0 p-0",
+
+            allowedContent: "text-transparent",
+            button: {
+              background: "transparent",
+              //     color: "transparent",
+              //     height: 0,
+              // width: "40px",
+              //     border: "none",
+              //     cursor: "pointer",
+            },
+          }}
+          endpoint="imageUploader"
+          onClientUploadComplete={(res) => {
+            console.log("Files: ", res[0]?.url);
+            setProfileURL(res[0]?.url);
+            alert("Upload Completed");
+          }}
+          onUploadError={(error: Error) => {
+            alert(`ERROR! ${error.message}`);
+          }}
         />
       </div>
       <div className="flex w-full">
@@ -65,23 +98,25 @@ const PersonalInfomation = ({ display }: { display: string }) => {
           onChange={handleChange}
           placeholder={""}
         />
-        <InputDropdown
+        <SelectMenu
           label={"Marital Status"}
           options={[
             { label: "Single", value: "single" },
             { label: "Married", value: "married" },
           ]}
+          onChange={handleChange}
         />
       </div>
       <div className="flex w-full">
-        <InputDropdown
-          label={"Gender"}
+        <SelectMenu
+          label={!state.gender ? "Gender" : state.gender}
           options={[
             { label: "Male", value: "male" },
             { label: "Female", value: "female" },
           ]}
+          onChange={handleChange}
         />
-        <InputDropdown
+        <SelectMenu
           label={"Nationality"}
           options={[
             { label: "Pakistan", value: "pakistan" },
@@ -90,6 +125,7 @@ const PersonalInfomation = ({ display }: { display: string }) => {
               value: "Saudi Arabia",
             },
           ]}
+          onChange={handleChange}
         />
       </div>
       <div className="flex w-full">
@@ -102,23 +138,33 @@ const PersonalInfomation = ({ display }: { display: string }) => {
         />
       </div>
       <div className="flex w-full">
-        <InputDropdown
+        <SelectMenu
           label={"City"}
           options={[
             { label: "Faisalabad", value: "faisalabad" },
             { label: "Lahore", value: "lahore" },
           ]}
+          onChange={handleChange}
         />
-        <InputDropdown
+        <SelectMenu
           label={"State"}
           options={[{ label: "Faisalabad", value: "faisalabad" }]}
+          onChange={handleChange}
         />
-        <InputDropdown
+        <SelectMenu
           label={"Zip Code"}
           options={[{ label: "3000", value: "3000" }]}
+          onChange={handleChange}
         />
       </div>
-    </div>
+      <div className="flex flex-row-reverse">
+        <Button
+          handleSubmit={handleSubmit}
+          handleClick={handleClick}
+          option={option}
+        />
+      </div>
+    </form>
   );
 };
 

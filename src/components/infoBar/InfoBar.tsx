@@ -1,22 +1,20 @@
+import React from "react";
+import Image from "next/image";
+import { INFO_BAR_PROPS } from "@/types/InfoBarProps";
 import {
   iconBriefcase,
+  iconBriefcaseOrange,
+  iconDocument,
+  iconDocumentOrange,
   iconLock,
-  iconNotepad,
+  iconLockOrange,
   iconUser,
+  iconUserOrange,
 } from "@/constants/Images";
-import Image from "next/image";
-import React from "react";
 
-const InfoBar = ({
-  option,
-  handleClick,
-}: {
-  option: Number;
-  handleClick: (num: Number) => void;
-}) => {
-  console.log("option", option);
+const InfoBar = ({ option, handleClick }: INFO_BAR_PROPS) => {
   return (
-    <div className="border-b-[3px] flex mx-[10px] border-borderGrey mb-5">
+    <div className="border-b-[3px] flex ms-[10px] border-borderGrey mb-5">
       <button
         onClick={() => handleClick(0)}
         className={`mb-[-3px] pb-2 ease-in-out duration-300 font-semibold ${
@@ -27,7 +25,7 @@ const InfoBar = ({
       >
         <Image
           className="me-[10px]"
-          src={iconUser}
+          src={option === 0 ? iconUserOrange : iconUser}
           height={24}
           width={24}
           alt=""
@@ -35,10 +33,7 @@ const InfoBar = ({
         Personal Information
       </button>
       <button
-        onClick={() => {
-          handleClick(1);
-          console.log("option", option);
-        }}
+        onClick={() => handleClick(1)}
         className={`mb-[-3px] pb-2 ease-in-out duration-300 font-semibold ${
           option === 1
             ? "text-customOrange border-customOrange"
@@ -47,7 +42,7 @@ const InfoBar = ({
       >
         <Image
           className="me-[10px]"
-          src={iconBriefcase}
+          src={option === 1 ? iconBriefcaseOrange : iconBriefcase}
           height={24}
           width={24}
           alt=""
@@ -64,7 +59,7 @@ const InfoBar = ({
       >
         <Image
           className="me-[10px]"
-          src={iconNotepad}
+          src={option === 2 ? iconDocumentOrange : iconDocument}
           height={24}
           width={24}
           alt=""
@@ -82,7 +77,7 @@ const InfoBar = ({
       >
         <Image
           className="me-[10px]"
-          src={iconLock}
+          src={option === 3 ? iconLockOrange : iconLock}
           height={24}
           width={24}
           alt=""

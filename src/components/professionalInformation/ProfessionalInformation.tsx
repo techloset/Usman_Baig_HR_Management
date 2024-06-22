@@ -2,11 +2,16 @@ import React from "react";
 import Input from "../input/Input";
 import useProfessionalInformation from "./useProfessionalInformation";
 import InputDropdown from "../inputDropdown/InputDropdown";
+import Button from "../button/Button";
+import { EMPLOYEE_PROFESSIONAL_INFO_PROPS } from "@/types/EmployeeInfoProps";
 
-const ProfessionalInformation = ({ display }: { display: string }) => {
-  const { state, handleChange } = useProfessionalInformation();
+const ProfessionalInformation = ({
+  handleClick,
+  option,
+}: EMPLOYEE_PROFESSIONAL_INFO_PROPS) => {
+  const { state, handleChange, handleSubmit } = useProfessionalInformation();
   return (
-    <div className={`${display} flex-col`}>
+    <form onSubmit={handleSubmit} className={`flex flex-col`}>
       <div className="flex w-full">
         <Input
           value={state.employeeId}
@@ -57,6 +62,7 @@ const ProfessionalInformation = ({ display }: { display: string }) => {
       </div>
       <div className="flex w-full">
         <InputDropdown
+          onChange={handleChange}
           label={"Working Days"}
           options={[{ label: "Seven", value: "7" }]}
         />
@@ -70,11 +76,19 @@ const ProfessionalInformation = ({ display }: { display: string }) => {
       </div>
       <div className="flex w-full">
         <InputDropdown
+          onChange={handleChange}
           label={"Office Location"}
           options={[{ label: "Faisalabad", value: "faisalabad" }]}
         />
       </div>
-    </div>
+      <div className="flex flex-row-reverse">
+        <Button
+          handleSubmit={handleSubmit}
+          handleClick={handleClick}
+          option={option}
+        />
+      </div>
+    </form>
   );
 };
 

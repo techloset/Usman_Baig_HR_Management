@@ -1,4 +1,5 @@
 export type EMPLOYEE_PERSONAL_DATA = {
+  photoURL: string;
   firstName: string;
   lastName: string;
   mobileNumber: string;

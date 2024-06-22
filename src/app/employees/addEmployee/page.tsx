@@ -7,6 +7,7 @@ import DefaultLayout from "@/components/layouts/DefaultLayout";
 import AccountAccess from "@/components/accountAccess/AccountAccess";
 import PersonalInfomation from "@/components/personalInfomation/PersonalInfomation";
 import ProfessionalInformation from "@/components/professionalInformation/ProfessionalInformation";
+import Button from "@/components/button/Button";
 
 const page = () => {
   const {
@@ -53,12 +54,17 @@ const page = () => {
           />
         )}
         {option === 3 && (
-          <AccountAccess
-            data={accountAccess}
-            setData={setAccountAccess}
-            handleClick={handleClick}
-            option={option}
-          />
+          <>
+            <AccountAccess
+              data={accountAccess}
+              setData={setAccountAccess}
+              handleClick={handleClick}
+              option={option}
+            />
+            {/* <div className="flex flex-row-reverse">
+              <Button handleClick={handleClick} option={option} />
+            </div> */}
+          </>
         )}
       </div>
     </DefaultLayout>

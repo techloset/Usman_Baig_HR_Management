@@ -51,9 +51,6 @@ const AccountAccess = ({
           placeholder={"Enter Github Id"}
         />
       </div>
-      <div className="flex flex-row-reverse">
-        <Button handleClick={handleClick} option={option} />
-      </div>
     </form>
   );
 };

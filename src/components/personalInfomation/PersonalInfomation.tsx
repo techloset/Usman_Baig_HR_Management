@@ -25,10 +25,10 @@ const PersonalInfomation = ({
     <form className={`flex flex-col`}>
       <div className="flex ms-[10px] mb-[10px]">
         <UploadButton
-          className="w-[40px] outline-none bg-greyShade"
+          className="w-[40px] outline-none bg-greyShade ut-button:ut-uploading:text-red-300"
           content={{
             allowedContent() {
-              return `dsdsd`;
+              return ``;
             },
             button() {
               return (
@@ -43,18 +43,16 @@ const PersonalInfomation = ({
               "rounded-[10px] border-[1px] border-borderGrey h-[100px] w-[100px] m-0 p-0",
 
             allowedContent: "text-transparent",
-            button: {
-              background: "transparent",
-              //     color: "transparent",
-              //     height: 0,
-              // width: "40px",
-              //     border: "none",
-              //     cursor: "pointer",
-            },
+            button:
+              "bg-transparent text-transparent border-none focus:border-none outline-none  focus:outline-none shadow-none ",
           }}
           endpoint="imageUploader"
           onClientUploadComplete={(res) => {
             console.log("Files: ", res[0]?.url);
+            setData((data) => ({
+              ...data,
+              photoURL: res[0]?.url,
+            }));
             setProfileURL(res[0]?.url);
             alert("Upload Completed");
           }}

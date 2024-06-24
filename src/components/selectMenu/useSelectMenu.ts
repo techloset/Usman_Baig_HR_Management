@@ -14,7 +14,6 @@ const useSelectMenu = ({ label, onChange }: INPUT_DROPDOWN_PROPS) => {
         value: optionValue,
       },
     });
-    console.log("optionValue", optionValue);
   };
   const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     handleOptionSelect(event.target.value);

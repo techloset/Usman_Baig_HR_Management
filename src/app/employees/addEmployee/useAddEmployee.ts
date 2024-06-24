@@ -26,18 +26,15 @@ const useAddEmployee = () => {
   const [accountAccess, setAccountAccess] =
     useState<EMPLOYEE_ACCOUNT_ACCESS_DATA>(INITIAL_STATE_ACCOUNT_ACCESS);
   const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
-    alert("ready");
     event.preventDefault();
-    // alert("Go");
+    const mergedData = {
+      presonalInfo: personalInfo,
+      professionalInfo: professionalInfo,
+      documents: documents,
+      accountAccess: accountAccess,
+    };
+    console.log("mergedData", mergedData);
   };
-
-  // const mergedData = {
-  //   presonalInfo: personalInfo,
-  //   professionalInfo: professionalInfo,
-  //   documents: documents,
-  //   accountAccess: accountAccess,
-  // };
-  // console.log("mergedData", mergedData);
 
   const handleClick = (num: number) => {
     setOption(num);

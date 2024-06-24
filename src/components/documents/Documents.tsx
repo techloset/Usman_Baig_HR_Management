@@ -5,17 +5,37 @@ import UploadFile from "../uploadFile/UploadFile";
 import Button from "../button/Button";
 import { EMPLOYEE_DOCUMENTS_PROPS } from "@/types/EmployeeInfoProps";
 
-const Documents = ({ handleClick, option }: EMPLOYEE_DOCUMENTS_PROPS) => {
-  const {} = useDocuments();
+const Documents = ({
+  handleClick,
+  option,
+  data,
+  setData,
+}: EMPLOYEE_DOCUMENTS_PROPS) => {
+  const { state, handleFileChange, handleSubmit } = useDocuments({
+    data,
+    setData,
+  });
   return (
     <div className="p-[10px]">
       <div className="flex w-full">
-        <UploadFile title={"Upload Appointment Letter"} />
-        <UploadFile title={"Upload Salary Slips"} />
+        <UploadFile
+          title={"Upload Appointment Letter"}
+          onFileChange={(file) => handleFileChange("appointmentLetter", file)}
+        />
+        <UploadFile
+          title={"Upload Salary Slips"}
+          onFileChange={(file) => handleFileChange("salarySlips", file)}
+        />
       </div>
       <div className="flex w-full">
-        <UploadFile title={"Upload Reliving Letter"} />
-        <UploadFile title={"Upload Experience Letter"} />
+        <UploadFile
+          title={"Upload Reliving Letter"}
+          onFileChange={(file) => handleFileChange("relivingLetter", file)}
+        />
+        <UploadFile
+          title={"Upload Experience Letter"}
+          onFileChange={(file) => handleFileChange("experienceLetter", file)}
+        />
       </div>
       <div className="flex flex-row-reverse">
         <Button handleClick={handleClick} option={option} />

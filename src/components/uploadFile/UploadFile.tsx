@@ -2,7 +2,13 @@ import React from "react";
 import { UploadDropzone } from "@/utils/uploadthing";
 import useUploadFile from "./useUploadFile";
 
-const UploadFile = ({ title }: { title: String }) => {
+const UploadFile = ({
+  title,
+  onFileChange,
+}: {
+  title: string;
+  onFileChange: (file: string) => void;
+}) => {
   const {} = useUploadFile();
   return (
     <div className="w-full text-center p-[10px]">
@@ -27,8 +33,15 @@ const UploadFile = ({ title }: { title: String }) => {
             container: "flex justify-center items-center flex-column p-0 mt-0",
           }}
           endpoint="imageUploader"
+          // onClientUploadComplete={(res) => {
+          //   console.log("Files: ", res);
+          //   alert("Upload Completed");
+          // }}
           onClientUploadComplete={(res) => {
             console.log("Files: ", res);
+            if (res && res.length > 0) {
+              onFileChange(res[0]?.url);
+            }
             alert("Upload Completed");
           }}
           onUploadError={(error: Error) => {

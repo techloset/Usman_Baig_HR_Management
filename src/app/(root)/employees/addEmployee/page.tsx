@@ -3,11 +3,12 @@ import React from "react";
 import useAddEmployee from "./useAddEmployee";
 import InfoBar from "@/components/infoBar/InfoBar";
 import Documents from "@/components/documents/Documents";
-import DefaultLayout from "@/components/layouts/DefaultLayout";
 import AccountAccess from "@/components/accountAccess/AccountAccess";
 import PersonalInfomation from "@/components/personalInfomation/PersonalInfomation";
 import ProfessionalInformation from "@/components/professionalInformation/ProfessionalInformation";
 import SubmitButton from "@/components/submitButton/SubmitButton";
+import DefaultLayout from "@/components/layouts/DefaultLayout";
+import { signOut } from "next-auth/react";
 
 const page = () => {
   const {
@@ -64,11 +65,10 @@ const page = () => {
             />
             <div className="flex flex-row-reverse">
               <SubmitButton handleSubmit={handleSubmit} />
-              {/* <button onClick={handleSubmit}>Submit here</button> */}
-              {/* <Button handleClick={handleClick} option={option} /> */}
             </div>
           </>
         )}
+        <button onClick={() => signOut}>Signout</button>
       </div>
     </DefaultLayout>
   );

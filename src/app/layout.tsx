@@ -4,6 +4,8 @@ import "./globals.css";
 import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
+import NextAuthSessionProvider from "../../providers/NextAuthSessionProvider";
+import ToastProvider from "../../providers/ToastProvider";
 
 const inter = Lexend({ subsets: ["latin"] });
 
@@ -14,13 +16,16 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <ToastProvider />
+        <NextAuthSessionProvider>{children}</NextAuthSessionProvider>
+      </body>
     </html>
   );
 }

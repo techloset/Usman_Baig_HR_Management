@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar from "../sidebar/Sidebar";
 import Header from "../header/Header";
+import useDefaultLayout from "./useDefaultLayout";
 
 export default function DefaultLayout({
   children,
@@ -11,6 +12,8 @@ export default function DefaultLayout({
   heading: string;
   description: string;
 }) {
+  // const { session } = useDefaultLayout();
+
   return (
     <>
       <div className="flex min-h-screen bg-primaryBlack text-white">

@@ -1,6 +1,6 @@
-import React from "react";
 import Image from "next/image";
 import EmployeeTable from "@/components/employeeTable/EmployeeTable";
+import React from "react";
 import DefaultLayout from "@/components/layouts/DefaultLayout";
 import PaginationBar from "@/components/paginationBar/PaginationBar";
 import SearchBar from "@/components/searchBar/SearchBar";

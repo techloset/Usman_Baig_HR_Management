@@ -68,7 +68,6 @@ const page = () => {
             </div>
           </>
         )}
-        <button onClick={() => signOut}>Signout</button>
       </div>
     </DefaultLayout>
   );

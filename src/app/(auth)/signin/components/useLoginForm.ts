@@ -3,7 +3,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
 const useLoginForm = () => {
-  const [state, setEmail] = useState("");
+  const [state, setState] = useState({ email: "", password: "" });
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -12,11 +12,19 @@ const useLoginForm = () => {
     });
   }, []);
 
-  const handleChange = (event: ChangeEvent) => {};
-
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setState((s) => ({ ...s, [event.target.name]: event.target.value }));
+  };
+  // const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+  //   const { name, value } = event.target;
+  //   setState(prevState => ({
+  //     ...prevState,
+  //     [name]: value
+  //   }));
+  // };
   const login = async () => {
     setLoading(true);
-
+    const { email, password } = state;
     const login = await signIn("credentials", {
       email,
       password,
@@ -33,7 +41,7 @@ const useLoginForm = () => {
     setLoading(false);
   };
 
-  return { login };
+  return { login, loading, state, handleChange };
 };
 
 export default useLoginForm;

@@ -1,53 +1,23 @@
 "use client";
 
+import React from "react";
 import FormInput from "@/components/formInput/FormInput";
-import { signIn, signOut } from "next-auth/react";
-import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
+import useLoginForm from "./useLoginForm";
 
 export default function LoginForm() {
-  useEffect(() => {
-    signOut({
-      redirect: false,
-    });
-  }, []);
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-
-  const [loading, setLoading] = useState(false);
-
-  const login = async () => {
-    setLoading(true);
-
-    const login = await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-    });
-
-    if (login?.ok) {
-      toast.success("Correct login");
-      window.location.assign("/");
-    } else if (login?.error) {
-      toast.error(login?.error);
-    }
-
-    setLoading(false);
-  };
-
+  const { loading, state, login, handleChange } = useLoginForm();
   return (
     <div className="space-y-5 flex flex-col items-center">
       <FormInput
         label="Email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        value={state?.email}
+        onChange={handleChange}
         disabled={loading}
       />
       <FormInput
         label="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        value={state?.password}
+        onChange={handleChange}
         disabled={loading}
         type="password"
       />

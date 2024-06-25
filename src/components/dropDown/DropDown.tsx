@@ -2,6 +2,7 @@
 import Image from "next/image";
 import useDropDown from "./useDropDown";
 import { iconArrowDown, profilePhoto } from "@/constants/Images";
+import { signOut } from "next-auth/react";
 
 const DropDown = () => {
   const { toggleDropdown, isOpen } = useDropDown();
@@ -33,7 +34,9 @@ const DropDown = () => {
             <li className="px-4 py-2 hover:bg-customOrange">About</li>
             <li className="px-4 py-2 hover:bg-customOrange">Profile Info</li>
             <div className="border-borderGrey border-[1px]"></div>
-            <li className="px-4 py-3 hover:bg-customOrange ">Sign out</li>
+            <li className="px-4 py-3 hover:bg-customOrange">
+              <button onClick={() => signOut()}>Sign out</button>
+            </li>
           </ul>
         </div>
       )}

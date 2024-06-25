@@ -10,12 +10,14 @@ export default function LoginForm() {
     <div className="space-y-5 flex flex-col items-center">
       <FormInput
         label="Email"
+        name={"email"}
         value={state?.email}
         onChange={handleChange}
         disabled={loading}
       />
       <FormInput
         label="Password"
+        name={"password"}
         value={state?.password}
         onChange={handleChange}
         disabled={loading}

@@ -12,7 +12,7 @@ const useDefaultLayout = () => {
     const checkSession = async () => {
       const session = await getServerSession(authOptions);
       if (!session?.user?.email) {
-        redirect("/signin");
+        redirect("/login");
       } else {
         setSession(session);
       }

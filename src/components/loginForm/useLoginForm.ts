@@ -15,13 +15,7 @@ const useLoginForm = () => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setState((s) => ({ ...s, [event.target.name]: event.target.value }));
   };
-  // const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-  //   const { name, value } = event.target;
-  //   setState(prevState => ({
-  //     ...prevState,
-  //     [name]: value
-  //   }));
-  // };
+
   const login = async () => {
     setLoading(true);
     const { email, password } = state;

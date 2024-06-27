@@ -13,7 +13,7 @@ export default async function ProtectedRootLayout({
   const session = await getServerSession(authOptions);
 
   if (!session?.user?.email) {
-    redirect("/signin");
+    redirect("/login");
   }
 
   return <main>{children}</main>;

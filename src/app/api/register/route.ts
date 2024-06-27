@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
-import prismadb from "../../../../libs/prismadb";
 import bcrypt from "bcrypt";
+import client from "../../../../libs/prismadb";
 
 export async function POST(req: Request) {
   try {
     const body = await req.json();
+    console.log(body);
 
     const { email, password } = body;
 
@@ -12,7 +13,7 @@ export async function POST(req: Request) {
       return new NextResponse("Missing data", { status: 500 });
     }
 
-    const userAlreadyExist = await prismadb.user.findFirst({
+    const userAlreadyExist = await client.user.findFirst({
       where: {
         email: email,
       },
@@ -24,7 +25,7 @@ export async function POST(req: Request) {
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    const newUser = await prismadb.user.create({
+    const newUser = await client.user.create({
       data: {
         email: email,
         hashedPassword: hashedPassword,

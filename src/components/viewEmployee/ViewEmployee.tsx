@@ -26,13 +26,15 @@ import {
   PROFILE_PROJECT_TABLE_HEADINGS,
   PROFILE_TABLE_ATTENDANCE_DATA,
 } from "@/constants/Constants";
+import { EMPLOYEE_DETAILS_PROPS } from "@/types/employeeDetailsProps";
 
-const ViewEmployee = ({ id }: { id: string }) => {
-  const { option, handleClick, menuOption, handleMenuClick, employeeDetails } =
+const ViewEmployee = ({ id, setName }: EMPLOYEE_DETAILS_PROPS) => {
+  const { option, handleClick, menuOption, handleMenuClick, details } =
     useViewEmployee({
       id,
+      setName,
     });
-  if (!employeeDetails) {
+  if (!details) {
     return <div>Loading...</div>;
   }
   return (
@@ -43,14 +45,20 @@ const ViewEmployee = ({ id }: { id: string }) => {
             <Image src={iconProfile} alt="" />
           </div>
           <div className="flex flex-col ms-4">
-            <div className="font-semibold text-2xl">Employee Name</div>
+            <div className="font-semibold text-2xl">
+              {details?.firstName + " " + details?.lastName}
+            </div>
             <div className="flex my-2">
               <Image src={iconBriefcase} alt="Icon Gmail" />
-              <div className="font-light ms-[10px] ">Project Manager</div>
+              <div className="font-light ms-[10px] ">
+                {details?.employmentType}
+              </div>
             </div>
             <div className="flex ">
               <Image src={iconGamil} alt="Icon Gmail" />
-              <div className="font-light ms-[10px]">dina.c@gmail.com</div>
+              <div className="font-light ms-[10px]">
+                {details?.emailAddress}
+              </div>
             </div>
           </div>
         </div>

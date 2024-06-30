@@ -22,7 +22,6 @@ const useDocuments = ({
     event.preventDefault();
     console.log("Submitting documents:", state);
   };
-  console.log("Submitting documents:", state);
 
   return {
     state,

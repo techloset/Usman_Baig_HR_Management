@@ -33,16 +33,12 @@ const UploadFile = ({
             container: "flex justify-center items-center flex-column p-0 mt-0",
           }}
           endpoint="imageUploader"
-          // onClientUploadComplete={(res) => {
-          //   console.log("Files: ", res);
-          //   alert("Upload Completed");
-          // }}
           onClientUploadComplete={(res) => {
             console.log("Files: ", res);
             if (res && res.length > 0) {
               onFileChange(res[0]?.url);
             }
-            alert("Upload Completed");
+            console.log("Upload Completed");
           }}
           onUploadError={(error: Error) => {
             alert(`ERROR! ${error.message}`);

@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import EmployeeTable from "@/components/employeeTable/EmployeeTable";
 import React from "react";
@@ -6,8 +7,10 @@ import PaginationBar from "@/components/paginationBar/PaginationBar";
 import SearchBar from "@/components/searchBar/SearchBar";
 import { iconAdd, iconFilter } from "@/constants/Images";
 import Link from "next/link";
+import useEmployees from "./useEmployees";
 
 const page = () => {
+  const { allEmployees } = useEmployees();
   return (
     <DefaultLayout
       heading={"All Employees"}
@@ -30,7 +33,7 @@ const page = () => {
             </button>
           </div>
         </div>
-        <EmployeeTable />
+        <EmployeeTable data={allEmployees} />
         <PaginationBar />
       </div>
     </DefaultLayout>

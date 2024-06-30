@@ -1,4 +1,5 @@
-import instance from "../../../src/axiosInstance/axiosInstance";
+import { EMPLOYEE_DATA } from "@/types/EmployeeInfoProps";
+import instance from "../../../src/utils/axiosInstance/axiosInstance";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -11,6 +12,7 @@ export const fetchEmployees = createAsyncThunk(
   async () => {
     try {
       const res = await instance.get("employee");
+      console.log(res.data);
       return res.data.data;
     } catch (error: any) {
       console.error("Error fetching employees:", error);
@@ -20,10 +22,9 @@ export const fetchEmployees = createAsyncThunk(
 );
 export const addEmployee = createAsyncThunk(
   "employee/addEmployee",
-  async (employeeData: FormData) => {
+  async (employeeData: EMPLOYEE_DATA) => {
     try {
       const response = await instance.post(`employee`, employeeData);
-
       console.log("Added new employee:", response.data);
       return response.data;
     } catch (error: any) {
@@ -37,7 +38,7 @@ export const deleteEmployee = createAsyncThunk(
   "employee/deleteEmployee",
   async (id: string) => {
     try {
-      const response = await instance.delete("employee", { params: { id } });
+      const response = await instance.delete("employee", { data: { id } });
       console.log("Deleted employee with id:", id);
       return response.data;
     } catch (error: any) {
@@ -48,7 +49,7 @@ export const deleteEmployee = createAsyncThunk(
 );
 export const updateEmployee = createAsyncThunk(
   "employee/updateEmployee",
-  async ({ id, data }: { id: any; data: any }) => {
+  async ({ id, data }: { id: string; data: EMPLOYEE_DATA }) => {
     try {
       const response = await instance.put(`employee`, {
         id,

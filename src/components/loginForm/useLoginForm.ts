@@ -29,7 +29,8 @@ const useLoginForm = () => {
       toast.success("Correct login");
       window.location.assign("/");
     } else if (login?.error) {
-      toast.error(login?.error);
+      console.error(login?.error);
+      toast.error("Incorrect login");
     }
 
     setLoading(false);

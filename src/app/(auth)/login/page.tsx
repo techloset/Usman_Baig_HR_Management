@@ -1,6 +1,6 @@
 import React from "react";
-import LoginForm from "../../../components/loginForm/LoginForm";
 import Link from "next/link";
+import LoginForm from "../../../components/loginForm/LoginForm";
 
 export default function LoginPage() {
   return (
@@ -12,7 +12,7 @@ export default function LoginPage() {
         <hr className="my-5" />
         <LoginForm />
         <div className="text-sm text-center text-neutral-500 mt-5">
-          Not have an accout?{" "}
+          Not have an accout?
           <Link href={"/register"} className="font-bold text-neutral-900">
             Register
           </Link>

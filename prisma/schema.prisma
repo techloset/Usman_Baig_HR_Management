@@ -21,35 +21,34 @@ model User{
 
 model Employee {
   id                String  @id @default(auto()) @map("_id") @db.ObjectId
-  firstName         String
-  lastName          String
-  email             String  @unique
-  mobileNumber      String
-  maritalStatus     String
-  gender            String
-  nationality       String
-  address           String
-  city              String
-  state             String
-  zip               String
-  imageUrl          String
-  startDate         String
-  employeeID        String?
-  userName          String?
-  employeeType      String?
-  emailAddress      String?
+  address           String?
+  appointmentLetter String?
+  city              String?
   department        String?
   designation       String?
-  workingDays       String?
-  joinDate          String?
-  officeLocation    String?
-  appointmentLetter String?
-  salarySlips       String?
-  relivingLetter    String?
+  email             String  @unique
+  emailAddress      String?
+  employeeId        String?
+  employmentType    String?
   experienceLetter  String?
-  stockID           String?
-  skypeID           String?
-  githubID          String?
-  createdDate       String?
+  firstName         String?
+  gender            String
+  githubId          String?
+  joiningDate       String?
+  lastName          String?
+  maritalStatus     String?
+  mobileNumber      String?
+  nationality       String?
+  officeLocation    String?
+  photoURL          String?
+  relivingLetter    String?
+  salarySlips       String?
+  skypeId           String?
+  slackId           String?
+  state             String?
+  userName          String?
+  workingDays       String?
+  zipCode           String?
+  dateOfBirth       String?
   attendance        String?
 }

@@ -2,8 +2,10 @@ import React, { MouseEvent } from "react";
 
 const SubmitButton = ({
   handleSubmit,
+  loading,
 }: {
   handleSubmit: (event: MouseEvent<HTMLButtonElement>) => void;
+  loading: boolean;
 }) => {
   return (
     <div className="mt-5">
@@ -14,9 +16,11 @@ const SubmitButton = ({
       </button>
       <button
         onClick={handleSubmit}
-        className={`ms-0 me-[10px] rounded-[10px] py-[13px] px-[27px] duration-300 hover:bg-customOrange hover:text-white text-customOrange bg-primaryBlack  border-customOrange border-[1px]`}
+        className={`ms-0 me-[10px] rounded-[10px] py-[13px] px-[27px] duration-300 hover:bg-customOrange hover:text-white ${
+          loading ? "animate-pulse" : " "
+        } text-customOrange bg-primaryBlack  border-customOrange border-[1px]`}
       >
-        Submit
+        {!loading ? "Submit" : "Submiting"}
       </button>
     </div>
   );

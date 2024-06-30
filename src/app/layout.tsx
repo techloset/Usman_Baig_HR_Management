@@ -6,8 +6,7 @@ import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
 import NextAuthSessionProvider from "../../providers/NextAuthSessionProvider";
 import ToastProvider from "../../providers/ToastProvider";
-import { Provider } from "react-redux";
-import store from "../../libs/store";
+import { Providers } from "../../providers/StoreProvider";
 
 const inter = Lexend({ subsets: ["latin"] });
 
@@ -26,9 +25,9 @@ export default function RootLayout({
       <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
       <body className={inter.className}>
         <ToastProvider />
-        <Provider store={store}>
+        <Providers>
           <NextAuthSessionProvider>{children}</NextAuthSessionProvider>
-        </Provider>
+        </Providers>
       </body>
     </html>
   );

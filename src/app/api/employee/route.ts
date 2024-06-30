@@ -1,20 +1,20 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "../../../config/prisma";
+import { EMPLOYEE_VALIDATION_FORM_ITEMS } from "@/constants/EmployeeInfo";
+import { PrismaClient } from "@prisma/client";
 
-// Create a new employee
+const prisma = new PrismaClient();
+
 export const POST = async (request: NextRequest) => {
   try {
     const employeeData = await request.json();
-
-    // const requiredFields = ["firstName", "lastName", "email", "designation"];
-    // for (const field of requiredFields) {
-    //   if (!employeeData[field]) {
-    //     return new NextResponse(`Missing required field: ${field}`, {
-    //       status: 400,
-    //     });
-    //   }
-    // }
-
+    const requiredFields = EMPLOYEE_VALIDATION_FORM_ITEMS;
+    for (const field of requiredFields) {
+      if (!employeeData[field]) {
+        return new NextResponse(`Missing required field: ${field}`, {
+          status: 400,
+        });
+      }
+    }
     try {
       const employee = await prisma.employee.create({
         data: employeeData,
@@ -41,7 +41,6 @@ export const POST = async (request: NextRequest) => {
   }
 };
 
-// Update an existing employee
 export const PUT = async (request: NextRequest) => {
   try {
     const { id, ...data } = await request.json();
@@ -78,8 +77,6 @@ export const PUT = async (request: NextRequest) => {
     });
   }
 };
-
-// Delete an employee
 export const DELETE = async (request: NextRequest) => {
   try {
     const { id } = await request.json();
@@ -92,7 +89,7 @@ export const DELETE = async (request: NextRequest) => {
 
     try {
       await prisma.employee.delete({
-        where: { id },
+        where: { id: id },
       });
 
       console.log("Deleted user with id:", id);
@@ -113,7 +110,6 @@ export const DELETE = async (request: NextRequest) => {
   }
 };
 
-// Get all employees
 export const GET = async (request: NextRequest) => {
   try {
     const employees = await prisma.employee.findMany();

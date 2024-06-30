@@ -8,11 +8,11 @@ import PersonalInfomation from "@/components/personalInfomation/PersonalInfomati
 import ProfessionalInformation from "@/components/professionalInformation/ProfessionalInformation";
 import SubmitButton from "@/components/submitButton/SubmitButton";
 import DefaultLayout from "@/components/layouts/DefaultLayout";
-import { signOut } from "next-auth/react";
 
 const page = () => {
   const {
     option,
+    isloading,
     documents,
     handleClick,
     setDocuments,
@@ -64,7 +64,7 @@ const page = () => {
               option={option}
             />
             <div className="flex flex-row-reverse">
-              <SubmitButton handleSubmit={handleSubmit} />
+              <SubmitButton handleSubmit={handleSubmit} loading={isloading} />
             </div>
           </>
         )}

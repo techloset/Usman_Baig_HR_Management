@@ -27,9 +27,14 @@ import {
   PROFILE_TABLE_ATTENDANCE_DATA,
 } from "@/constants/Constants";
 
-const ViewEmployee = () => {
-  const { option, handleClick, menuOption, handleMenuClick } =
-    useViewEmployee();
+const ViewEmployee = ({ id }: { id: string }) => {
+  const { option, handleClick, menuOption, handleMenuClick, employeeDetails } =
+    useViewEmployee({
+      id,
+    });
+  if (!employeeDetails) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className="p-5 rounded-[10px] border-[1px] border-borderGrey">
       <div className="flex border-b-[1px] border-borderGrey pb-8 justify-between">

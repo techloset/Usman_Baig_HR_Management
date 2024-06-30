@@ -30,8 +30,8 @@ const useRegisterForm = () => {
 
       router.push("/login");
     } catch (err: any) {
-      console.log(err);
-      toast.error(err?.response?.data);
+      console.log(err?.response?.data);
+      toast.error("Something went wrong while creating user!");
     } finally {
       setLoading(false);
     }

@@ -12,8 +12,11 @@ import {
   EMPLOYEE_PROFESSIONAL_DATA,
 } from "@/types/ProfileInformation";
 import { MouseEvent, useState } from "react";
+import { useAppDispatch } from "../../../../../libs/hooks";
+import { addEmployee } from "../../../../../libs/features/employees/employeesSlice";
 
 const useAddEmployee = () => {
+  const [isloading, setIsLoading] = useState(false);
   const [option, setOption] = useState<number>(0);
   const [personalInfo, setPersonalInfo] = useState<EMPLOYEE_PERSONAL_DATA>(
     INITIAL_STATE_PERSONAL_INFO
@@ -25,15 +28,32 @@ const useAddEmployee = () => {
   );
   const [accountAccess, setAccountAccess] =
     useState<EMPLOYEE_ACCOUNT_ACCESS_DATA>(INITIAL_STATE_ACCOUNT_ACCESS);
-  const handleSubmit = (event: MouseEvent<HTMLButtonElement>) => {
+
+  const dispatch = useAppDispatch();
+
+  const handleSubmit = async (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    const mergedData = {
-      presonalInfo: personalInfo,
-      professionalInfo: professionalInfo,
-      documents: documents,
-      accountAccess: accountAccess,
+    setIsLoading(true);
+    const employeeData = {
+      ...personalInfo,
+      ...professionalInfo,
+      ...documents,
+      ...accountAccess,
+      attendance: "",
     };
-    console.log("mergedData", mergedData);
+    console.log("employeeData", employeeData);
+    try {
+      const data = await dispatch(addEmployee(employeeData));
+    } catch (error) {
+      console.log("Something went wrong while adding new employee", error);
+    } finally {
+      setIsLoading(false);
+      setOption(0);
+      setPersonalInfo(INITIAL_STATE_PERSONAL_INFO);
+      setProfessionalInfo(INITIAL_STATE_PROFESSIONAL_INFO);
+      setDocuments(INITIAL_STATE_DOCUMENTS_FILES);
+      setAccountAccess(INITIAL_STATE_ACCOUNT_ACCESS);
+    }
   };
 
   const handleClick = (num: number) => {
@@ -41,6 +61,7 @@ const useAddEmployee = () => {
   };
   return {
     option,
+    isloading,
     personalInfo,
     professionalInfo,
     accountAccess,

@@ -54,7 +54,7 @@ const PersonalInfomation = ({
               photoURL: res[0]?.url,
             }));
             setProfileURL(res[0]?.url);
-            alert("Upload Completed");
+            console.log("Upload Completed");
           }}
           onUploadError={(error: Error) => {
             alert(`ERROR! ${error.message}`);

@@ -1,4 +1,4 @@
-import { EMPLOYEE_DATA } from "@/types/EmployeeInfoProps";
+import { EMPLOYEE_POST_DATA } from "@/types/EmployeeInfoProps";
 import instance from "../../../src/utils/axiosInstance/axiosInstance";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
@@ -22,7 +22,7 @@ export const fetchEmployees = createAsyncThunk(
 );
 export const addEmployee = createAsyncThunk(
   "employee/addEmployee",
-  async (employeeData: EMPLOYEE_DATA) => {
+  async (employeeData: EMPLOYEE_POST_DATA) => {
     try {
       const response = await instance.post(`employee`, employeeData);
       console.log("Added new employee:", response.data);
@@ -49,7 +49,7 @@ export const deleteEmployee = createAsyncThunk(
 );
 export const updateEmployee = createAsyncThunk(
   "employee/updateEmployee",
-  async ({ id, data }: { id: string; data: EMPLOYEE_DATA }) => {
+  async ({ id, data }: { id: string; data: EMPLOYEE_POST_DATA }) => {
     try {
       const response = await instance.put(`employee`, {
         id,

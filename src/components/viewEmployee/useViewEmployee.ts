@@ -1,6 +1,5 @@
 "use client";
 import { ChangeEvent, MouseEvent, useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchEmployeeDetails } from "../../redux/slices/employeesDetailsSlice";
 import { transformEmployeeDetails } from "@/hooks/useTransformData";
 import toast from "react-hot-toast";
@@ -10,6 +9,7 @@ import {
   EMPLOYEE_SORTED_DATA,
 } from "@/types/types";
 import { updateEmployee } from "@/redux/slices/employeesSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/store";
 
 const useViewEmployee = ({ id, setName }: EMPLOYEE_DETAILS_PROPS) => {
   const [option, setOption] = useState<number>(0);

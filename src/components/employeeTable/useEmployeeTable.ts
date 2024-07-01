@@ -1,5 +1,5 @@
 import { deleteEmployee } from "@/redux/slices/employeesSlice";
-import { useAppDispatch } from "../../redux/hooks";
+import { useAppDispatch } from "@/redux/store";
 
 const useEmployeeTable = () => {
   const dispatch = useAppDispatch();

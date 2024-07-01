@@ -1,7 +1,7 @@
 "use client";
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 import { fetchEmployees } from "@/redux/slices/employeesSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/store";
 
 const useDashboard = () => {
   const dispatch = useAppDispatch();

@@ -1,13 +1,15 @@
 "use client";
 import { ChangeEvent, MouseEvent, useEffect, useState } from "react";
-import { useAppDispatch, useAppSelector } from "../../../libs/hooks";
-import { fetchEmployeeDetails } from "../../../libs/features/employees/employeesDetailsSlice";
-import { EMPLOYEE_DETAILS_PROPS } from "@/types/employeeDetailsProps";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { fetchEmployeeDetails } from "../../redux/slices/employeesDetailsSlice";
 import { transformEmployeeDetails } from "@/hooks/useTransformData";
-import { EMPLOYEE_SORTED_DATA } from "@/types/EmployeeInfoProps";
-import { CustomChangeEvent } from "@/types/InputDropDownProps";
 import toast from "react-hot-toast";
-import { updateEmployee } from "../../../libs/features/employees/employeesSlice";
+import {
+  CustomChangeEvent,
+  EMPLOYEE_DETAILS_PROPS,
+  EMPLOYEE_SORTED_DATA,
+} from "@/types/types";
+import { updateEmployee } from "@/redux/slices/employeesSlice";
 
 const useViewEmployee = ({ id, setName }: EMPLOYEE_DETAILS_PROPS) => {
   const [option, setOption] = useState<number>(0);

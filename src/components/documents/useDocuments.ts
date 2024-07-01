@@ -1,5 +1,5 @@
 import { INITIAL_STATE_DOCUMENTS_FILES } from "@/constants/IntialStates";
-import { EMPLOYEE_DOCUMENTS_DATA } from "@/types/ProfileInformation";
+import { EMPLOYEE_DOCUMENTS_DATA } from "@/types/types";
 import { Dispatch, FormEvent, SetStateAction, useState } from "react";
 
 const useDocuments = ({

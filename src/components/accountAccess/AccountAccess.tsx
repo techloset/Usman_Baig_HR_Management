@@ -1,8 +1,7 @@
 import React from "react";
 import useAccountAccess from "./useAccountAccess";
 import Input from "../input/Input";
-import Button from "../button/Button";
-import { EMPLOYEE_ACCOUNT_ACCESS_PROPS } from "@/types/EmployeeInfoProps";
+import { EMPLOYEE_ACCOUNT_ACCESS_PROPS } from "@/types/types";
 
 const AccountAccess = ({
   data,
@@ -10,7 +9,7 @@ const AccountAccess = ({
   setData,
   handleClick,
 }: EMPLOYEE_ACCOUNT_ACCESS_PROPS) => {
-  const { state, handleChange } = useAccountAccess({
+  const { handleChange } = useAccountAccess({
     data,
     setData,
   });

@@ -1,5 +1,5 @@
+import { BUTTON_PROPS } from "@/types/types";
 import React from "react";
-import { BUTTON_PROPS } from "@/types/ButtonProps";
 
 const Button = ({ handleClick, option }: BUTTON_PROPS) => {
   return (

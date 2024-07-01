@@ -3,7 +3,7 @@ import React from "react";
 import useDocuments from "./useDocuments";
 import UploadFile from "../uploadFile/UploadFile";
 import Button from "../button/Button";
-import { EMPLOYEE_DOCUMENTS_PROPS } from "@/types/EmployeeInfoProps";
+import { EMPLOYEE_DOCUMENTS_PROPS } from "@/types/types";
 
 const Documents = ({
   handleClick,

@@ -3,10 +3,10 @@ import Image from "next/image";
 import { iconBell } from "@/constants/Images";
 import DropDown from "../dropDown/DropDown";
 import SearchBar from "../searchBar/SearchBar";
-import { layoutProps } from "@/types/HeaderProps";
 import Link from "next/link";
+import { LAYOUT_PROPS } from "@/types/types";
 
-const Header = ({ heading, description }: layoutProps) => {
+const Header = ({ heading, description }: LAYOUT_PROPS) => {
   return (
     <div className="h-[82px] pb-[10px] my-[15px] bg-primaryBlack sticky top-0 z-[99] flex items-center justify-between pe-[50px] ms-[10px]">
       <div className="flex flex-col ">

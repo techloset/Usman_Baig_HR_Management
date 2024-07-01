@@ -26,7 +26,7 @@ import {
   PROFILE_PROJECT_TABLE_HEADINGS,
   PROFILE_TABLE_ATTENDANCE_DATA,
 } from "@/constants/Constants";
-import { EMPLOYEE_DETAILS_PROPS } from "@/types/employeeDetailsProps";
+import { EMPLOYEE_DETAILS_PROPS } from "@/types/types";
 
 const ViewEmployee = ({ id, setName }: EMPLOYEE_DETAILS_PROPS) => {
   const {

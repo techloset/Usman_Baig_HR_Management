@@ -1,5 +1,4 @@
 import React from "react";
-import { EMPLOYEE_TABLE_DATA } from "@/constants/Constants";
 import { iconArrow, iconArrowDown } from "@/constants/Images";
 import Image from "next/image";
 

@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { iconArrowDown } from "@/constants/Images";
 import useInputDropdown from "./useInputDropdown";
-import { INPUT_DROPDOWN_PROPS } from "@/types/InputDropDownProps";
+import { INPUT_DROPDOWN_PROPS } from "@/types/types";
 
 const InputDropdown = ({ label, options, onChange }: INPUT_DROPDOWN_PROPS) => {
   const { toggleDropdown, isOpen, handleOptionSelect } = useInputDropdown({

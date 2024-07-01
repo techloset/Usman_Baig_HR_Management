@@ -1,4 +1,4 @@
-import { CustomChangeEvent } from "@/types/InputDropDownProps";
+import { CustomChangeEvent } from "@/types/types";
 import React, { ChangeEvent } from "react";
 
 const ProfileDataField = ({

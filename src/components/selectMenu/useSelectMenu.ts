@@ -1,5 +1,5 @@
 import { toCamelCase } from "@/constants/GlobalFunction";
-import { INPUT_DROPDOWN_PROPS } from "@/types/InputDropDownProps";
+import { INPUT_DROPDOWN_PROPS } from "@/types/types";
 import { useState } from "react";
 
 const useSelectMenu = ({ label, onChange }: INPUT_DROPDOWN_PROPS) => {

@@ -1,7 +1,6 @@
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
-import { CustomChangeEvent } from "@/types/InputDropDownProps";
-import { EMPLOYEE_PROFESSIONAL_DATA } from "@/types/ProfileInformation";
 import { INITIAL_STATE_PROFESSIONAL_INFO } from "@/constants/IntialStates";
+import { CustomChangeEvent, EMPLOYEE_PROFESSIONAL_DATA } from "@/types/types";
 
 const useProfessionalInformation = ({
   data,

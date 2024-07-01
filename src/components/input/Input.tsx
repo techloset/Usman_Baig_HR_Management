@@ -1,7 +1,7 @@
+import { INPUT_PROPS } from "@/types/types";
 import React from "react";
-import { InputProps } from "@/types/InputProps";
 
-const Input = ({ value, name, type, placeholder, onChange }: InputProps) => {
+const Input = ({ value, name, type, placeholder, onChange }: INPUT_PROPS) => {
   return (
     <div className="p-[10px] w-full">
       <input

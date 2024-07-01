@@ -1,8 +1,8 @@
-import React from "react";
 import {
   GLOBAL_PROFILE_TABLE_PROPS,
   PROFILE_TABLE_HEADINGS,
-} from "@/types/ProfileTableProps";
+} from "@/types/types";
+import React from "react";
 
 const ProfileTable = ({
   tableHeadings,

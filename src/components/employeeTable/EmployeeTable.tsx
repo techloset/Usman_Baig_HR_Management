@@ -1,18 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import {
-  iconEdit,
-  iconTrash,
-  iconView,
-  profilePhoto,
-} from "@/constants/Images";
-import {
-  EMPLOYEE_TABLE_DATA,
-  EMPLOYEE_TABLE_HEAD,
-} from "@/constants/Constants";
+import { iconEdit, iconTrash, iconView } from "@/constants/Images";
+import { EMPLOYEE_TABLE_HEAD } from "@/constants/Constants";
 import Link from "next/link";
-import { EMPLOYEES_TABLE_DATA } from "@/types/EmployeeInfoProps";
 import useEmployeeTable from "./useEmployeeTable";
+import { EMPLOYEES_TABLE_DATA } from "@/types/types";
 
 const EmployeeTable = ({ data }: { data: EMPLOYEES_TABLE_DATA[] }) => {
   const { handleDelete } = useEmployeeTable();

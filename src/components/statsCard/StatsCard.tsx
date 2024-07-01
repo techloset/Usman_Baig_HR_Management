@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { StatsCardTypes } from "@/types/StatsCard";
+import { STATS_CARD_TYPES } from "@/types/types";
 
 const StatsCard = ({
   icon,
@@ -13,7 +13,7 @@ const StatsCard = ({
   textColor,
   iconAlt,
   srcAlt,
-}: StatsCardTypes) => {
+}: STATS_CARD_TYPES) => {
   return (
     <div className="ms-[10px] mt-[20px] w-[510px] h-[154px] rounded-[10px] border-borderGrey border-[1px]">
       <div className="flex mt-4 ps-[26px] items-center mb-[10px]">

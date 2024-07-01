@@ -1,8 +1,7 @@
 "use client";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
-import { useAppSelector } from "../../../libs/hooks";
-import { CustomChangeEvent } from "@/types/InputDropDownProps";
-import { EMPLOYEE_ATTENDANCE_DATA } from "@/types/EmployeeInfoProps";
+import { useAppSelector } from "../../redux/hooks";
+import { CustomChangeEvent, EMPLOYEE_ATTENDANCE_DATA } from "@/types/types";
 
 const useAttendanceTable = () => {
   const [inputEnabled, setInputEnabled] = useState(false);

@@ -1,6 +1,5 @@
+import { CustomChangeEvent, EMPLOYEE_PERSONAL_DATA } from "@/types/types";
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
-import { CustomChangeEvent } from "@/types/InputDropDownProps";
-import { EMPLOYEE_PERSONAL_DATA } from "@/types/ProfileInformation";
 
 const usePersonalInfomation = ({
   data,

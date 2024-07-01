@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import instance from "../../../src/utils/axiosInstance/axiosInstance";
+import instance from "../../utils/axiosInstance/axiosInstance";
 import { EMPLOYEE_DATA } from "@/types/EmployeeInfoProps";
 
 export type DetailsState = {

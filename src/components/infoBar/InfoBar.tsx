@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import { INFO_BAR_PROPS } from "@/types/InfoBarProps";
 import {
   iconBriefcase,
   iconBriefcaseOrange,
@@ -11,6 +10,7 @@ import {
   iconUser,
   iconUserOrange,
 } from "@/constants/Images";
+import { INFO_BAR_PROPS } from "@/types/types";
 
 const InfoBar = ({ option, handleClick }: INFO_BAR_PROPS) => {
   return (

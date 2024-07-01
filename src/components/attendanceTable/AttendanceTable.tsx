@@ -2,17 +2,19 @@
 import React from "react";
 import Image from "next/image";
 import { iconEdit, profilePhoto } from "@/constants/Images";
-import { AttendanceTableProps } from "@/types/AttendanceTableProps";
 import SearchBar from "../searchBar/SearchBar";
 import PaginationBar from "../paginationBar/PaginationBar";
 import { EMPLOYEE_ATTENDACE_TABLE_HEADS } from "@/constants/Constants";
 import useAttendanceTable from "./useAttendanceTable";
-import { EMPLOYEE_ATTENDANCE_DATA } from "@/types/EmployeeInfoProps";
+import {
+  ATTENDANCE_TABLE_PROPS,
+  EMPLOYEE_ATTENDANCE_DATA,
+} from "@/types/types";
 
 const AttendanceTable = ({
   display,
   SearchBarDisplay,
-}: AttendanceTableProps) => {
+}: ATTENDANCE_TABLE_PROPS) => {
   const {
     tableData,
     handleChange,

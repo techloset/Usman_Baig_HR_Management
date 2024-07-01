@@ -6,7 +6,7 @@ import { iconCamera } from "@/constants/Images";
 import SelectMenu from "../selectMenu/SelectMenu";
 import { UploadButton } from "@/utils/uploadthing";
 import usePersonalInfomation from "./usePersonalInfomation";
-import { EMPLOYEE_PERSONAL_INFO_PROPS } from "@/types/EmployeeInfoProps";
+import { EMPLOYEE_PERSONAL_INFO_PROPS } from "@/types/types";
 
 const PersonalInfomation = ({
   handleClick,

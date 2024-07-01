@@ -1,5 +1,5 @@
 import { EMPLOYEE_POST_DATA } from "@/types/EmployeeInfoProps";
-import instance from "../../../src/utils/axiosInstance/axiosInstance";
+import instance from "../../utils/axiosInstance/axiosInstance";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {

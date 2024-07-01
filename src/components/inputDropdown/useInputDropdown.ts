@@ -1,5 +1,5 @@
-import { INPUT_DROPDOWN_PROPS } from "@/types/InputDropDownProps";
-import React, { useState } from "react";
+import { INPUT_DROPDOWN_PROPS } from "@/types/types";
+import { useState } from "react";
 
 const useInputDropdown = ({ label, onChange }: INPUT_DROPDOWN_PROPS) => {
   const [isOpen, setIsOpen] = useState(false);

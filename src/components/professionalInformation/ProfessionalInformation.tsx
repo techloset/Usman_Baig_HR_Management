@@ -3,7 +3,7 @@ import Input from "../input/Input";
 import Button from "../button/Button";
 import SelectMenu from "../selectMenu/SelectMenu";
 import useProfessionalInformation from "./useProfessionalInformation";
-import { EMPLOYEE_PROFESSIONAL_INFO_PROPS } from "@/types/EmployeeInfoProps";
+import { EMPLOYEE_PROFESSIONAL_INFO_PROPS } from "@/types/types";
 
 const ProfessionalInformation = ({
   handleClick,

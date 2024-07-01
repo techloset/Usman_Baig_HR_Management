@@ -12,7 +12,7 @@ import {
   EMPLOYEE_PROFESSIONAL_DATA,
 } from "@/types/ProfileInformation";
 import { MouseEvent, useState } from "react";
-import { useAppDispatch } from "../../../../../libs/hooks";
+import { useAppDispatch } from "../../../../redux/hooks";
 import { addEmployee } from "../../../../../libs/features/employees/employeesSlice";
 
 const useAddEmployee = () => {

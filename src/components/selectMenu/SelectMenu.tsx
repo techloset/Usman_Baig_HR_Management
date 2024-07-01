@@ -3,7 +3,7 @@ import React from "react";
 import Image from "next/image";
 import useSelectMenu from "./useSelectMenu";
 import { iconArrowDown } from "@/constants/Images";
-import { INPUT_DROPDOWN_PROPS } from "@/types/InputDropDownProps";
+import { INPUT_DROPDOWN_PROPS } from "@/types/types";
 
 const SelectMenu = ({ label, options, onChange }: INPUT_DROPDOWN_PROPS) => {
   const { handleOpen, open, handleSelectChange } = useSelectMenu({

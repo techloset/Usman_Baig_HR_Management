@@ -1,6 +1,4 @@
-import { INITIAL_STATE_ACCOUNT_ACCESS } from "@/constants/IntialStates";
-import { CustomChangeEvent } from "@/types/InputDropDownProps";
-import { EMPLOYEE_ACCOUNT_ACCESS_DATA } from "@/types/ProfileInformation";
+import { CustomChangeEvent, EMPLOYEE_ACCOUNT_ACCESS_DATA } from "@/types/types";
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
 
 const useAccountAccess = ({
@@ -10,7 +8,6 @@ const useAccountAccess = ({
   data: EMPLOYEE_ACCOUNT_ACCESS_DATA | undefined;
   setData: Dispatch<SetStateAction<EMPLOYEE_ACCOUNT_ACCESS_DATA>>;
 }) => {
-  const [state, setState] = useState(INITIAL_STATE_ACCOUNT_ACCESS);
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement> | CustomChangeEvent
   ) => {
@@ -22,7 +19,7 @@ const useAccountAccess = ({
     }
   };
 
-  return { state, handleChange };
+  return { handleChange };
 };
 
 export default useAccountAccess;

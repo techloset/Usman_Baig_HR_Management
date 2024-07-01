@@ -41,6 +41,8 @@ const useAddEmployee = () => {
       ...accountAccess,
       attendance: "",
       type: "",
+      checkIn: "",
+      checkOut: "",
     };
     try {
       await dispatch(addEmployee(employeeData));

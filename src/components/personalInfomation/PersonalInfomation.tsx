@@ -14,7 +14,7 @@ const PersonalInfomation = ({
   data,
   setData,
 }: EMPLOYEE_PERSONAL_INFO_PROPS) => {
-  const { state, setProfileURL, handleChange } = usePersonalInfomation({
+  const { setProfileURL, handleChange } = usePersonalInfomation({
     data,
     setData,
   });

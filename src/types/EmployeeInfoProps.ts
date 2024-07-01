@@ -110,3 +110,13 @@ export type EMPLOYEES_TABLE_DATA = {
   photoURL: string;
   id: string;
 };
+export type EMPLOYEE_ATTENDANCE_DATA = {
+  id: string;
+  photoURL: string;
+  firstName: string;
+  lastName: string;
+  designation: string;
+  type: string;
+  checkIn: string;
+  status: string;
+};

@@ -9,12 +9,12 @@ import {
   orangeUsers,
 } from "@/constants/Images";
 
-const StatsCardGroup = () => {
+const StatsCardGroup = ({ employeesArray }: { employeesArray: number }) => {
   return (
     <div className="flex flex-wrap">
       <StatsCard
         icon={orangeUsers}
-        amount={666}
+        amount={employeesArray}
         heading={"All Employees"}
         date={"July 16, 2023"}
         percent={23}

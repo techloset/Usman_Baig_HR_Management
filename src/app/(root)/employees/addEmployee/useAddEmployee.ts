@@ -40,10 +40,10 @@ const useAddEmployee = () => {
       ...documents,
       ...accountAccess,
       attendance: "",
+      type: "",
     };
-    console.log("employeeData", employeeData);
     try {
-      const data = await dispatch(addEmployee(employeeData));
+      await dispatch(addEmployee(employeeData));
     } catch (error) {
       console.log("Something went wrong while adding new employee", error);
     } finally {

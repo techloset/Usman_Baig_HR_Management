@@ -41,6 +41,25 @@ export const POST = async (request: NextRequest) => {
   }
 };
 
+export const GET = async (request: NextRequest) => {
+  try {
+    const employees = await prisma.employee.findMany();
+
+    console.log("Fetched all employees:", employees);
+    return new NextResponse(
+      JSON.stringify({ data: employees, success: true }),
+      {
+        status: 200,
+      }
+    );
+  } catch (error) {
+    console.error("Error fetching employees:", error);
+    return new NextResponse(JSON.stringify({ error: error }), {
+      status: 400,
+    });
+  }
+};
+
 export const PUT = async (request: NextRequest) => {
   try {
     const { id, ...data } = await request.json();
@@ -77,6 +96,7 @@ export const PUT = async (request: NextRequest) => {
     });
   }
 };
+
 export const DELETE = async (request: NextRequest) => {
   try {
     const { id } = await request.json();
@@ -106,25 +126,6 @@ export const DELETE = async (request: NextRequest) => {
     console.error("Error parsing request:", error);
     return new NextResponse("Internal Server Error", {
       status: 500,
-    });
-  }
-};
-
-export const GET = async (request: NextRequest) => {
-  try {
-    const employees = await prisma.employee.findMany();
-
-    console.log("Fetched all employees:", employees);
-    return new NextResponse(
-      JSON.stringify({ data: employees, success: true }),
-      {
-        status: 200,
-      }
-    );
-  } catch (error) {
-    console.error("Error fetching employees:", error);
-    return new NextResponse(JSON.stringify({ error: error }), {
-      status: 400,
     });
   }
 };

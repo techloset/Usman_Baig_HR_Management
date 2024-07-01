@@ -1,4 +1,5 @@
 export type EMPLOYEE_PERSONAL_DATA = {
+  [key: string]: string;
   photoURL: string;
   firstName: string;
   lastName: string;
@@ -14,6 +15,7 @@ export type EMPLOYEE_PERSONAL_DATA = {
   zipCode: string;
 };
 export type EMPLOYEE_PROFESSIONAL_DATA = {
+  [key: string]: string;
   employeeId: string;
   userName: string;
   employmentType: string;
@@ -26,11 +28,12 @@ export type EMPLOYEE_PROFESSIONAL_DATA = {
 };
 export type EMPLOYEE_DOCUMENTS_DATA = {
   appointmentLetter: string;
-  salarySlips: string;
+  salarySlip: string;
   relivingLetter: string;
   experienceLetter: string;
 };
 export type EMPLOYEE_ACCOUNT_ACCESS_DATA = {
+  [key: string]: string;
   email: string;
   slackId: string;
   skypeId: string;

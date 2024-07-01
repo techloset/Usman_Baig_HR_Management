@@ -28,13 +28,19 @@ export type EMPLOYEE_POST_DATA = {
   officeLocation: string;
   photoURL: string;
   relivingLetter: string;
-  salarySlips: string;
+  salarySlip: string;
   skypeId: string;
   slackId: string;
   state: string;
   userName: string;
   workingDays: string;
   zipCode: string;
+};
+export type EMPLOYEE_SORTED_DATA = {
+  personalInfo: EMPLOYEE_PERSONAL_DATA;
+  professionalInfo: EMPLOYEE_PROFESSIONAL_DATA;
+  documents: EMPLOYEE_DOCUMENTS_DATA;
+  accountAccess: EMPLOYEE_ACCOUNT_ACCESS_DATA;
 };
 export type EMPLOYEE_PERSONAL_INFO_PROPS = {
   data?: EMPLOYEE_PERSONAL_DATA;
@@ -62,6 +68,7 @@ export type EMPLOYEE_ACCOUNT_ACCESS_PROPS = {
 };
 export type EMPLOYEE_DATA = {
   data: {
+    id: string;
     address: string;
     appointmentLetter: string;
     city: string;
@@ -84,7 +91,7 @@ export type EMPLOYEE_DATA = {
     officeLocation: string;
     photoURL: string;
     relivingLetter: string;
-    salarySlips: string;
+    salarySlip: string;
     skypeId: string;
     slackId: string;
     state: string;

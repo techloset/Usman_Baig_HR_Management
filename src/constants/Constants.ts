@@ -257,3 +257,10 @@ export const PROFILE_LEAVE_TABLE_DATA = [
     status: "Reject",
   },
 ];
+export const EMPLOYEE_ATTENDACE_TABLE_HEADS = [
+  "Employee Name",
+  "Designation",
+  "Type",
+  "Check In Time",
+  "Status",
+];

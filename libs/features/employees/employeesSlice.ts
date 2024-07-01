@@ -55,7 +55,6 @@ export const updateEmployee = createAsyncThunk(
         id,
         ...data,
       });
-
       console.log("Updated employee with id:", id);
 
       return response.data;

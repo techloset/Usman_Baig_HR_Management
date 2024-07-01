@@ -32,7 +32,7 @@ export const INITIAL_STATE_ACCOUNT_ACCESS = {
 };
 export const INITIAL_STATE_DOCUMENTS_FILES = {
   appointmentLetter: "",
-  salarySlips: "",
+  salarySlip: "",
   relivingLetter: "",
   experienceLetter: "",
 };

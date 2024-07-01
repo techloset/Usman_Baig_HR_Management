@@ -42,7 +42,7 @@ model Employee {
   officeLocation    String?
   photoURL          String?
   relivingLetter    String?
-  salarySlips       String?
+  salarySlip        String?
   skypeId           String?
   slackId           String?
   state             String?
@@ -51,4 +51,5 @@ model Employee {
   zipCode           String?
   dateOfBirth       String?
   attendance        String?
+  type              String?
 }

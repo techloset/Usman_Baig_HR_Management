@@ -24,7 +24,7 @@ const Documents = ({
         />
         <UploadFile
           title={"Upload Salary Slips"}
-          onFileChange={(file) => handleFileChange("salarySlips", file)}
+          onFileChange={(file) => handleFileChange("salarySlip", file)}
         />
       </div>
       <div className="flex w-full">

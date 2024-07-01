@@ -5,7 +5,6 @@ import {
   iconFileFilled,
   iconNotepad,
   iconNotepadFilled,
-  iconNotes,
   iconUser,
   iconUserFilled,
 } from "@/constants/Images";

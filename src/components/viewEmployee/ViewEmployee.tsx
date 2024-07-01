@@ -29,12 +29,21 @@ import {
 import { EMPLOYEE_DETAILS_PROPS } from "@/types/employeeDetailsProps";
 
 const ViewEmployee = ({ id, setName }: EMPLOYEE_DETAILS_PROPS) => {
-  const { option, handleClick, menuOption, handleMenuClick, details } =
-    useViewEmployee({
-      id,
-      setName,
-    });
-  if (!details) {
+  const {
+    option,
+    handleClick,
+    inputEnabled,
+    menuOption,
+    setInputEnabled,
+    handleMenuClick,
+    handleUpdate,
+    handleChange,
+    data,
+  } = useViewEmployee({
+    id,
+    setName,
+  });
+  if (!data) {
     return <div>Loading...</div>;
   }
   return (
@@ -46,25 +55,44 @@ const ViewEmployee = ({ id, setName }: EMPLOYEE_DETAILS_PROPS) => {
           </div>
           <div className="flex flex-col ms-4">
             <div className="font-semibold text-2xl">
-              {details?.firstName + " " + details?.lastName}
+              {data?.personalInfo?.firstName +
+                " " +
+                data?.personalInfo?.lastName}
             </div>
             <div className="flex my-2">
               <Image src={iconBriefcase} alt="Icon Gmail" />
               <div className="font-light ms-[10px] ">
-                {details?.employmentType}
+                {data?.professionalInfo?.employmentType}
               </div>
             </div>
             <div className="flex ">
               <Image src={iconGamil} alt="Icon Gmail" />
               <div className="font-light ms-[10px]">
-                {details?.emailAddress}
+                {data?.personalInfo?.emailAddress}
               </div>
             </div>
           </div>
         </div>
-        <div className="me-[52px] flex mt-auto py-[13px] px-5 rounded-[10px] bg-customOrange">
-          <Image src={iconEdit} alt="" />
-          <button className=" ms-[10px]">Edit Profile</button>
+        <div className="flex">
+          {inputEnabled ? (
+            <button
+              className=" hover:border-[1px] me-5 hover:border-customOrange hover:bg-primaryBlack hover:text-customOrange flex mt-auto py-[13px] px-5 rounded-[10px] bg-customOrange"
+              onClick={handleUpdate}
+            >
+              Update Data
+            </button>
+          ) : (
+            <></>
+          )}
+          <button
+            className="me-[52px] hover:border-[1px] hover:border-customOrange hover:bg-primaryBlack hover:text-customOrange flex mt-auto py-[13px] px-5 rounded-[10px] bg-customOrange"
+            onClick={() => setInputEnabled(!inputEnabled)}
+          >
+            <Image src={iconEdit} alt="Edit Icon" />
+            <div className="ms-[10px]">
+              {!inputEnabled ? "Edit Profile" : "Cancel Edit"}
+            </div>
+          </button>
         </div>
       </div>
       <div className="flex mt-[30px]">
@@ -78,21 +106,29 @@ const ViewEmployee = ({ id, setName }: EMPLOYEE_DETAILS_PROPS) => {
               <InfoBar option={option} handleClick={handleClick} />
               <div className="flex flex-wrap ms-[10px] gap-4 ">
                 {option === 0 &&
-                  PROFILE_PERSONAL_INFO.map((heading, i) => {
+                  PROFILE_PERSONAL_INFO.map((item, i) => {
                     return (
                       <ProfileDataField
-                        heading={heading}
-                        value={"John Deo"}
+                        name={item.key}
+                        section={"personalInfo"}
+                        handleChange={handleChange}
+                        inputEnabled={inputEnabled}
+                        heading={item.label}
+                        value={data?.personalInfo[item.key]}
                         key={i}
                       />
                     );
                   })}
                 {option === 1 &&
-                  PROFILE_PROFESSIONAL_INFO.map((heading, i) => {
+                  PROFILE_PROFESSIONAL_INFO.map((item, i) => {
                     return (
                       <ProfileDataField
-                        heading={heading}
-                        value={"John Deo"}
+                        section={"professionalInfo"}
+                        name={item.key}
+                        handleChange={handleChange}
+                        inputEnabled={inputEnabled}
+                        heading={item.label}
+                        value={data?.professionalInfo[item.key]}
                         key={i}
                       />
                     );
@@ -106,12 +142,16 @@ const ViewEmployee = ({ id, setName }: EMPLOYEE_DETAILS_PROPS) => {
                   </>
                 )}
                 {option === 3 &&
-                  PROFILE_ACCOUNT_ACCESS.map((heading, i) => {
+                  PROFILE_ACCOUNT_ACCESS.map((item, i) => {
                     return (
                       <ProfileDataField
-                        heading={heading}
-                        value={"John Deo"}
                         key={i}
+                        section={"accountAccess"}
+                        name={item.key}
+                        handleChange={handleChange}
+                        inputEnabled={inputEnabled}
+                        heading={item.label}
+                        value={data?.accountAccess[item.key]}
                       />
                     );
                   })}

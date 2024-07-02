@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import React from "react";
-import { authOptions } from "../../../libs/AuthOptions";
+import { authOptions } from "../../../libs/authoptions";
 
 interface ProtectedRootLayoutProps {
   children: React.ReactNode;

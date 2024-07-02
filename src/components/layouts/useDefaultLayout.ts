@@ -1,6 +1,6 @@
 "use client";
 import { getServerSession } from "next-auth";
-import { authOptions } from "../../../libs/AuthOptions";
+import { authOptions } from "../../../libs/authoptions";
 import { redirect } from "next/navigation";
 import { useEffect, useState } from "react";
 

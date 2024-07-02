@@ -26,7 +26,7 @@ const AttendanceTable = ({
     <div className="ms-[10px] me-[30px] rounded-[10px] border-[1px] p-5 border-borderGrey mb-[30px] mt-5 shadow-md ">
       <div className={`mb-[30px] ${SearchBarDisplay}`}>
         <SearchBar width={330} />
-        <div className="flex">
+        <div className="flex ms-auto ">
           {inputEnabled ? (
             <button
               className=" hover:border-[1px] me-5 hover:border-customOrange hover:bg-primaryBlack hover:text-customOrange flex mt-auto py-[13px] px-5 rounded-[10px] bg-customOrange"
@@ -89,9 +89,10 @@ const AttendanceTable = ({
                   <td className="pt-[10px]">{data?.designation}</td>
                   <td className="pt-[10px]">
                     <input
-                      className="bg-primaryBlack"
+                      className="bg-primaryBlack w-24 outline-none"
                       type="text"
                       name="type"
+                      disabled={!inputEnabled}
                       onChange={(e) => handleChange(e, i)}
                       value={data?.type}
                     />
@@ -99,6 +100,7 @@ const AttendanceTable = ({
                   <td className="pt-[10px]">
                     <input
                       name="checkIn"
+                      disabled={!inputEnabled}
                       onChange={(e) => handleChange(e, i)}
                       className="bg-primaryBlack"
                       type="time"

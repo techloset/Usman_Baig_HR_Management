@@ -44,6 +44,7 @@ import iconCalenderFilled from "../../public/images/CalendarFilled.png";
 import iconFileFilled from "../../public/images/FileFilled.png";
 import iconFile from "../../public/images/FileOutline.png";
 import iconNotepadFilled from "../../public/images/NotepadFilled.png";
+import iconLoginLogo from "../../public/images/LoginLogo.png";
 export {
   iconSun,
   iconFile,
@@ -75,6 +76,7 @@ export {
   iconCalender,
   profilePhoto,
   iconRedArrow,
+  iconLoginLogo,
   iconBriefcase,
   iconCommunity,
   iconArrowDown,

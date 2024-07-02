@@ -7,7 +7,7 @@ import useLoginForm from "./useLoginForm";
 export default function LoginForm() {
   const { loading, state, login, handleChange } = useLoginForm();
   return (
-    <div className="space-y-5 flex flex-col items-center">
+    <div className="flex flex-col items-center max-w-[445px] ">
       <FormInput
         label="Email"
         name={"email"}
@@ -25,7 +25,7 @@ export default function LoginForm() {
       />
       <div
         onClick={login}
-        className="px-10 py-3 bg-neutral-900 rounded-full text-white disabled:opacity-70 cursor-pointer"
+        className="px-10 py-3 bg-customOrange w-full rounded-[10px] text-center text-white disabled:opacity-70 cursor-pointer"
       >
         Login
       </div>

@@ -1,7 +1,7 @@
 "use client";
+import { fetchEmployees } from "@/redux/slices/employeesSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/store";
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { fetchEmployees } from "../../../../libs/features/employees/employeesSlice";
 
 const useEmployees = () => {
   const dispatch = useAppDispatch();

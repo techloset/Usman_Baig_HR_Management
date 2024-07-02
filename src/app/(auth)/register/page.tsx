@@ -1,23 +1,24 @@
 import React from "react";
 import RegisterForm from "../../../components/registerForm/RegisterForm";
 import Link from "next/link";
+import Image from "next/image";
+import { iconLoginLogo } from "@/constants/Images";
 
 export default function RegisterPage() {
   return (
-    <div className="h-screen w-full flex items-center justify-center bg-gray-100">
-      <div className="p-10 bg-white rounded-lg shadow-lg w-full sm:w-3/4 lg:w-auto">
-        <h1 className="text-4xl font-semibold text-center text-neutral-900">
-          Register
-        </h1>
-        <hr className="my-5" />
-        <RegisterForm />
-        <div className="text-sm text-center text-neutral-500 mt-5">
-          Have an accout?{" "}
-          <Link href={"/login"} className="font-bold text-neutral-900">
-            Login
-          </Link>
+    <>
+      <div className="h-screen w-full flex items-center justify-center bg-primaryBlack">
+        <div className="w-[445px] ">
+          <Image
+            src={iconLoginLogo}
+            alt="Icon Logo"
+            className="h-[166px] me-auto w-[409px] mb-10"
+          />
+          <div className="text-white font-semibold text-[30px]">Welcome</div>
+          <div className="text-white font-light mb-5">Please Register here</div>
+          <RegisterForm />
         </div>
       </div>
-    </div>
+    </>
   );
 }

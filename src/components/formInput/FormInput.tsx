@@ -25,7 +25,7 @@ export default function FormInput({
         disabled={disabled}
         type={type}
         name={name}
-        className="outline-none p-4 border-2 text-white border-customOrange w-full rounded-[10px] peer  bg-primaryBlack  "
+        className="outline-none p-4 border-[1px] text-white border-customOrange w-full rounded-[10px] peer bg-primaryBlack"
       />
       <label className="capitalize absolute top-0 text-customOrange left-3 scale-75 peer-focus-within:scale-100 peer-focus-within:-top-3 peer-focus-within:bg-primaryBlack peer-focus-within:px-2 px-0 bg-transparent transition-all duration-200 ease-in-out">
         {label}

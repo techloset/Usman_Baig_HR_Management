@@ -18,3 +18,14 @@
 ::-webkit-scrollbar-thumb:hover {
   background-color: grey;
 }
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus textarea:-webkit-autofill,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  background-color: transparent;
+}
+input:-webkit-autofill {
+  background-color: transparent;
+}

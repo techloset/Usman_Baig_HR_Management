@@ -5,15 +5,15 @@ import {
   INITIAL_STATE_PERSONAL_INFO,
   INITIAL_STATE_PROFESSIONAL_INFO,
 } from "@/constants/IntialStates";
+import { addEmployee } from "@/redux/slices/employeesSlice";
+import { useAppDispatch } from "@/redux/store";
 import {
   EMPLOYEE_ACCOUNT_ACCESS_DATA,
   EMPLOYEE_DOCUMENTS_DATA,
   EMPLOYEE_PERSONAL_DATA,
   EMPLOYEE_PROFESSIONAL_DATA,
-} from "@/types/ProfileInformation";
+} from "@/types/types";
 import { MouseEvent, useState } from "react";
-import { useAppDispatch } from "../../../../redux/hooks";
-import { addEmployee } from "../../../../../libs/features/employees/employeesSlice";
 
 const useAddEmployee = () => {
   const [isloading, setIsLoading] = useState(false);

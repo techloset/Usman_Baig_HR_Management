@@ -10,7 +10,7 @@ import Link from "next/link";
 import useEmployees from "./useEmployees";
 
 const page = () => {
-  const { allEmployees } = useEmployees();
+  const { allEmployees, searchtext, setSearchText } = useEmployees();
   return (
     <DefaultLayout
       heading={"All Employees"}

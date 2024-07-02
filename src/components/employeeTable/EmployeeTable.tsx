@@ -5,6 +5,7 @@ import { EMPLOYEE_TABLE_HEAD } from "@/constants/Constants";
 import Link from "next/link";
 import useEmployeeTable from "./useEmployeeTable";
 import { EMPLOYEES_TABLE_DATA } from "@/types/types";
+import Loader from "../loader/Loader";
 
 const EmployeeTable = ({ data }: { data: EMPLOYEES_TABLE_DATA[] }) => {
   const { handleDelete } = useEmployeeTable();

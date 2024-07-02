@@ -3,6 +3,7 @@ import { StaticImageData } from "next/image";
 export type ATTENDANCE_TABLE_PROPS = {
   display: string;
   SearchBarDisplay: string;
+  showAttendance: boolean;
 };
 
 export type SEARCH_BAR_PROPS = {
@@ -96,6 +97,10 @@ type Options = {
 
 export type INPUT_DROPDOWN_PROPS = {
   label: string;
+  width?: string;
+  initialValue?: string;
+  margin?: boolean;
+  height?: string;
   options: Options[];
   onChange: (e: CustomChangeEvent) => void;
 };
@@ -214,6 +219,7 @@ export type EMPLOYEES_TABLE_DATA = {
 };
 export type EMPLOYEE_ATTENDANCE_DATA = {
   id: string;
+  attendance?: string;
   photoURL: string;
   firstName: string;
   lastName: string;

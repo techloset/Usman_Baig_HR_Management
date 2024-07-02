@@ -263,4 +263,5 @@ export const EMPLOYEE_ATTENDACE_TABLE_HEADS = [
   "Type",
   "Check In Time",
   "Status",
+  "Attendance",
 ];

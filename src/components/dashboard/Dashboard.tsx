@@ -4,6 +4,7 @@ import StatsCardGroup from "../statsCard/StatsCardGroup";
 import AttendanceTable from "../attendanceTable/AttendanceTable";
 import useDashboard from "./useDashboard";
 import Loader from "../loader/Loader";
+import AttendanceChart from "../attendanceChart/AttendanceChart";
 
 function Dashboard() {
   const { employeeArray } = useDashboard();
@@ -11,7 +12,12 @@ function Dashboard() {
   return (
     <>
       <StatsCardGroup employeesArray={employeeArray} />
-      <AttendanceTable display={"flex"} SearchBarDisplay={"hidden"} />
+      <AttendanceChart />
+      <AttendanceTable
+        showAttendance={false}
+        display={"flex"}
+        SearchBarDisplay={"hidden"}
+      />
     </>
   );
 }

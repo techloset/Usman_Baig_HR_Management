@@ -11,9 +11,11 @@ import {
   EMPLOYEE_ATTENDANCE_DATA,
 } from "@/types/types";
 import Loader from "../loader/Loader";
+import SelectMenu from "../selectMenu/SelectMenu";
 
 const AttendanceTable = ({
   display,
+  showAttendance,
   SearchBarDisplay,
 }: ATTENDANCE_TABLE_PROPS) => {
   const {
@@ -60,7 +62,10 @@ const AttendanceTable = ({
       <table className="w-full font-light text-sm  text-left rtl:text-right ">
         <thead className="text-[16px] text-customGrey font-light">
           <tr>
-            {EMPLOYEE_ATTENDACE_TABLE_HEADS.map((heading, i) => {
+            {EMPLOYEE_ATTENDACE_TABLE_HEADS.slice(
+              0,
+              !showAttendance ? 5 : 6
+            ).map((heading, i) => {
               return (
                 <th scope="col" className="py-[10px]" key={i}>
                   {heading}
@@ -119,6 +124,24 @@ const AttendanceTable = ({
                       {status ? "On Time" : "Late"}
                     </div>
                   </td>
+                  {showAttendance ? (
+                    <td>
+                      <SelectMenu
+                        initialValue={data?.attendance}
+                        margin={false}
+                        height="h-8"
+                        width="w-[50%]"
+                        label={"Attendance"}
+                        options={[
+                          { label: "Present", value: "present" },
+                          { label: "Absent", value: "absent" },
+                        ]}
+                        onChange={(e) => handleChange(e, i)}
+                      />
+                    </td>
+                  ) : (
+                    <></>
+                  )}
                 </tr>
               );
             })}

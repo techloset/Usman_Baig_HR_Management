@@ -5,21 +5,35 @@ import useSelectMenu from "./useSelectMenu";
 import { iconArrowDown } from "@/constants/Images";
 import { INPUT_DROPDOWN_PROPS } from "@/types/types";
 
-const SelectMenu = ({ label, options, onChange }: INPUT_DROPDOWN_PROPS) => {
+const SelectMenu = ({
+  label,
+  options,
+  onChange,
+  height,
+  margin,
+  initialValue,
+  width,
+}: INPUT_DROPDOWN_PROPS) => {
   const { handleOpen, open, handleSelectChange } = useSelectMenu({
     label,
     options,
     onChange,
   });
   return (
-    <div className="relative w-full h-14 mx-[10px] m-[10px] rounded-[10px] bg-primaryBlack border-[1px] border-borderGrey">
+    <div
+      className={`relative  ${width} ${height} ${
+        margin ? "mx-[10px] m-[10px]" : ""
+      } rounded-[10px] bg-primaryBlack border-[1px] border-borderGrey`}
+    >
       <select
         onClick={handleOpen}
         onChange={handleSelectChange}
         id="countries"
         className="appearance-none h-full gap-3 pl-4 pr-10 focus:outline-none border-none w-full text-customGrey bg-primaryBlack  rounded-lg"
       >
-        <option className="custom-option">{label}</option>
+        <option className="custom-option">
+          {!initialValue ? label : initialValue}
+        </option>
 
         {options.map((options, i) => {
           return (

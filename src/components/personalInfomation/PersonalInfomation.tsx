@@ -102,6 +102,9 @@ const PersonalInfomation = ({
           placeholder={""}
         />
         <SelectMenu
+          margin={true}
+          height="h-14"
+          width="w-full"
           label={"Marital Status"}
           options={[
             { label: "Single", value: "single" },
@@ -112,6 +115,9 @@ const PersonalInfomation = ({
       </div>
       <div className="flex w-full">
         <SelectMenu
+          margin={true}
+          height="h-14"
+          width="w-full"
           label={!data?.gender ? "Gender" : data?.gender}
           options={[
             { label: "Male", value: "male" },
@@ -120,6 +126,9 @@ const PersonalInfomation = ({
           onChange={handleChange}
         />
         <SelectMenu
+          margin={true}
+          height="h-14"
+          width="w-full"
           label={"Nationality"}
           options={[
             { label: "Pakistan", value: "pakistan" },
@@ -142,6 +151,9 @@ const PersonalInfomation = ({
       </div>
       <div className="flex w-full">
         <SelectMenu
+          margin={true}
+          height="h-14"
+          width="w-full"
           label={"City"}
           options={[
             { label: "Faisalabad", value: "faisalabad" },
@@ -150,11 +162,17 @@ const PersonalInfomation = ({
           onChange={handleChange}
         />
         <SelectMenu
+          margin={true}
+          height="h-14"
+          width="w-full"
           label={"State"}
           options={[{ label: "Faisalabad", value: "faisalabad" }]}
           onChange={handleChange}
         />
         <SelectMenu
+          margin={true}
+          height="h-14"
+          width="w-full"
           label={"Zip Code"}
           options={[{ label: "3000", value: "3000" }]}
           onChange={handleChange}

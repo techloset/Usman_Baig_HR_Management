@@ -27,6 +27,7 @@ import {
   PROFILE_TABLE_ATTENDANCE_DATA,
 } from "@/constants/Constants";
 import { EMPLOYEE_DETAILS_PROPS } from "@/types/types";
+import Loader from "../loader/Loader";
 
 const ViewEmployee = ({ id, setName }: EMPLOYEE_DETAILS_PROPS) => {
   const {
@@ -44,7 +45,7 @@ const ViewEmployee = ({ id, setName }: EMPLOYEE_DETAILS_PROPS) => {
     setName,
   });
   if (!data) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
   return (
     <div className="p-5 rounded-[10px] border-[1px] border-borderGrey">

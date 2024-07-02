@@ -1,5 +1,4 @@
 import { ChangeEvent, Dispatch, SetStateAction, useState } from "react";
-import { INITIAL_STATE_PROFESSIONAL_INFO } from "@/constants/IntialStates";
 import { CustomChangeEvent, EMPLOYEE_PROFESSIONAL_DATA } from "@/types/types";
 
 const useProfessionalInformation = ({
@@ -9,7 +8,6 @@ const useProfessionalInformation = ({
   data: EMPLOYEE_PROFESSIONAL_DATA | undefined;
   setData: Dispatch<SetStateAction<EMPLOYEE_PROFESSIONAL_DATA>>;
 }) => {
-  const [state, setState] = useState(INITIAL_STATE_PROFESSIONAL_INFO);
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement> | CustomChangeEvent
   ) => {
@@ -21,7 +19,7 @@ const useProfessionalInformation = ({
     }
   };
 
-  return { state, handleChange };
+  return { handleChange };
 };
 
 export default useProfessionalInformation;

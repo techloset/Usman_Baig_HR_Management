@@ -11,7 +11,7 @@ const ProfessionalInformation = ({
   data,
   setData,
 }: EMPLOYEE_PROFESSIONAL_INFO_PROPS) => {
-  const { state, handleChange } = useProfessionalInformation({
+  const { handleChange } = useProfessionalInformation({
     data,
     setData,
   });
@@ -70,6 +70,9 @@ const ProfessionalInformation = ({
       </div>
       <div className="flex w-full">
         <SelectMenu
+          margin={true}
+          height="h-14"
+          width="w-full"
           onChange={handleChange}
           label={"Working Days"}
           options={[
@@ -88,6 +91,9 @@ const ProfessionalInformation = ({
       </div>
       <div className="flex w-full">
         <SelectMenu
+          margin={true}
+          height="h-14"
+          width="w-full"
           onChange={handleChange}
           label={"Office Location"}
           options={[{ label: "Faisalabad", value: "faisalabad" }]}

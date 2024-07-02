@@ -8,13 +8,13 @@ import { bulkUpdateAttendance } from "@/redux/slices/attendanceUpdateSlice";
 
 const useAttendanceTable = () => {
   const [inputEnabled, setInputEnabled] = useState(false);
+  const [searchtext, setSearchText] = useState("");
   const [tableData, setTableData] = useState<EMPLOYEE_ATTENDANCE_DATA[]>([]);
   const dispatch = useAppDispatch();
   const allEmployees = useAppSelector((state) => state.employees.employeeData);
   useEffect(() => {
     const fetchEmployeesData = async () => {
       const data = await dispatch(fetchEmployees());
-      console.log("data", data);
       setTableData(data.payload);
     };
     fetchEmployeesData();

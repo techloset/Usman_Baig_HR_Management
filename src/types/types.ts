@@ -8,6 +8,10 @@ export type ATTENDANCE_TABLE_PROPS = {
 export type SEARCH_BAR_PROPS = {
   width: number;
 };
+export type ATTENDANCE_STATE = {
+  isLoading: boolean;
+  error: string | null;
+};
 
 export type STATS_CARD_TYPES = {
   src: StaticImageData;

@@ -30,7 +30,6 @@ const useAttendanceTable = () => {
   };
   const handleUpdate = async (event: FormEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    console.log("tableData", tableData);
     try {
       await dispatch(bulkUpdateAttendance(tableData));
       toast.success("Updated successfully in table data");
@@ -38,8 +37,19 @@ const useAttendanceTable = () => {
       console.log("error", error);
     }
   };
+
+  const getCheckInTime = (time: string) => {
+    const checkInTimeString = `2024-07-02T${time}:00`;
+    const checkInTime = new Date(checkInTimeString);
+    const standardCheckInTime = new Date();
+    standardCheckInTime.setHours(8, 0, 0, 0);
+    const isOnTime = checkInTime <= standardCheckInTime;
+    return isOnTime;
+  };
+
   return {
     tableData,
+    getCheckInTime,
     handleChange,
     inputEnabled,
     setInputEnabled,

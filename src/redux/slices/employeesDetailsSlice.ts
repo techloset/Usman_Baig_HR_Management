@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import instance from "../../utils/axiosInstance/axiosInstance";
-import { EMPLOYEE_DATA } from "@/types/EmployeeInfoProps";
+import { EMPLOYEE_DATA } from "@/types/types";
 
 export type DetailsState = {
   employeeDetails: EMPLOYEE_DATA | null;
@@ -18,7 +18,6 @@ export const fetchEmployeeDetails = createAsyncThunk(
   async (id: string) => {
     try {
       const response = await instance.get(`details?id=${id}`);
-      console.log("Fetched employee details:", response.data);
       return response.data;
     } catch (error: any) {
       console.error("Error fetching employee details:", error);

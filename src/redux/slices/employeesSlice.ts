@@ -1,4 +1,4 @@
-import { EMPLOYEE_POST_DATA } from "@/types/EmployeeInfoProps";
+import { EMPLOYEE_POST_DATA } from "@/types/types";
 import instance from "../../utils/axiosInstance/axiosInstance";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
@@ -12,7 +12,6 @@ export const fetchEmployees = createAsyncThunk(
   async () => {
     try {
       const res = await instance.get("employee");
-      console.log(res.data);
       return res.data.data;
     } catch (error: any) {
       console.error("Error fetching employees:", error);

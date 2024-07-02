@@ -10,6 +10,7 @@ import {
   ATTENDANCE_TABLE_PROPS,
   EMPLOYEE_ATTENDANCE_DATA,
 } from "@/types/types";
+import Loader from "../loader/Loader";
 
 const AttendanceTable = ({
   display,
@@ -20,6 +21,7 @@ const AttendanceTable = ({
     handleChange,
     handleUpdate,
     inputEnabled,
+    getCheckInTime,
     setInputEnabled,
   } = useAttendanceTable();
   return (
@@ -70,8 +72,7 @@ const AttendanceTable = ({
         <tbody>
           {tableData &&
             tableData.map((data: EMPLOYEE_ATTENDANCE_DATA, i: number) => {
-              const time = data.checkIn;
-              console.log("time", time);
+              const status = getCheckInTime(data?.checkIn);
               return (
                 <tr className="border-t-[1px] border-borderGrey" key={i}>
                   <th scope="row" className=" flex items-center pt-[10px] ">
@@ -110,17 +111,18 @@ const AttendanceTable = ({
                   <td className="pt-[10px]">
                     <div
                       className={` ${
-                        data?.status === "On Time"
+                        status
                           ? "bg-successBackground text-success"
                           : "bg-dangerBackground text-danger"
                       } w-fit text-[12px] rounded-[4px] px-[9px] py-[3px] font-light`}
                     >
-                      {data?.status}
+                      {status ? "On Time" : "Late"}
                     </div>
                   </td>
                 </tr>
               );
             })}
+          {!tableData && <Loader />}
         </tbody>
       </table>
       <PaginationBar />

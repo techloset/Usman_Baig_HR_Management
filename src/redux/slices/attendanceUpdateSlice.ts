@@ -1,8 +1,12 @@
 // features/attendance/attendanceSlice.ts
 import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
 import instance from "@/utils/axiosInstance/axiosInstance";
-import { EMPLOYEE_ATTENDANCE_DATA } from "@/types/types";
+import { ATTENDANCE_STATE, EMPLOYEE_ATTENDANCE_DATA } from "@/types/types";
 
+const initialState: ATTENDANCE_STATE = {
+  isLoading: false,
+  error: null,
+};
 export const bulkUpdateAttendance = createAsyncThunk(
   "attendance/bulkUpdateAttendance",
   async (updatedData: EMPLOYEE_ATTENDANCE_DATA[]) => {
@@ -14,16 +18,6 @@ export const bulkUpdateAttendance = createAsyncThunk(
     }
   }
 );
-
-interface AttendanceState {
-  isLoading: boolean;
-  error: string | null;
-}
-
-const initialState: AttendanceState = {
-  isLoading: false,
-  error: null,
-};
 
 const attendanceSlice = createSlice({
   name: "attendance",

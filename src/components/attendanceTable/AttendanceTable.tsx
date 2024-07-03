@@ -25,12 +25,18 @@ const AttendanceTable = ({
     inputEnabled,
     getCheckInTime,
     setInputEnabled,
+    searchText,
+    setSearchText,
   } = useAttendanceTable();
   return (
     <div className="ms-[10px] me-[30px] rounded-[10px] border-[1px] p-5 border-borderGrey mb-[30px] mt-5 shadow-md ">
       <div className={`mb-[30px] ${SearchBarDisplay}`}>
-        <SearchBar width={330} />
-        <div className="flex ms-auto ">
+        <SearchBar
+          setSearchText={setSearchText}
+          searchText={searchText}
+          width={330}
+        />
+        <div className="flex ms-auto">
           {inputEnabled ? (
             <button
               className=" hover:border-[1px] me-5 hover:border-customOrange hover:bg-primaryBlack hover:text-customOrange flex mt-auto py-[13px] px-5 rounded-[10px] bg-customOrange"

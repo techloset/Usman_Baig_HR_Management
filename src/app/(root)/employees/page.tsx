@@ -10,7 +10,7 @@ import Link from "next/link";
 import useEmployees from "./useEmployees";
 
 const page = () => {
-  const { allEmployees, searchtext, setSearchText } = useEmployees();
+  const { allEmployees, searchText, setSearchText } = useEmployees();
   return (
     <DefaultLayout
       heading={"All Employees"}
@@ -18,7 +18,11 @@ const page = () => {
     >
       <div className="m-[30px] border-[1px] border-borderGrey rounded-[10px] p-5">
         <div className="flex justify-between items-center">
-          <SearchBar width={261} />
+          <SearchBar
+            searchText={searchText}
+            setSearchText={setSearchText}
+            width={261}
+          />
           <div className="flex">
             <Link
               href={"/employees/addEmployee"}

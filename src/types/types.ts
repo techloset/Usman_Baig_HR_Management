@@ -8,6 +8,8 @@ export type ATTENDANCE_TABLE_PROPS = {
 
 export type SEARCH_BAR_PROPS = {
   width: number;
+  searchText: string;
+  setSearchText: (text: string) => void;
 };
 export type ATTENDANCE_STATE = {
   isLoading: boolean;
@@ -211,6 +213,7 @@ export type EMPLOYEES_TABLE_DATA = {
   firstName: string;
   lastName: string;
   employeeId: string;
+  type?: string;
   department: string;
   designation: string;
   employmentType: string;

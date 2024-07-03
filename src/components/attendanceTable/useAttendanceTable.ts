@@ -2,16 +2,22 @@
 import toast from "react-hot-toast";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/redux/store";
-import { CustomChangeEvent, EMPLOYEE_ATTENDANCE_DATA } from "@/types/types";
+import {
+  CustomChangeEvent,
+  EMPLOYEES_TABLE_DATA,
+  EMPLOYEE_ATTENDANCE_DATA,
+} from "@/types/types";
 import { fetchEmployees } from "@/redux/slices/employeesSlice";
 import { bulkUpdateAttendance } from "@/redux/slices/attendanceUpdateSlice";
 
 const useAttendanceTable = () => {
   const [inputEnabled, setInputEnabled] = useState(false);
-  const [searchtext, setSearchText] = useState("");
+  const [searchText, setSearchText] = useState("");
   const [tableData, setTableData] = useState<EMPLOYEE_ATTENDANCE_DATA[]>([]);
   const dispatch = useAppDispatch();
-  const allEmployees = useAppSelector((state) => state.employees.employeeData);
+  const allEmployees: EMPLOYEE_ATTENDANCE_DATA[] = useAppSelector(
+    (state) => state.employees.employeeData
+  );
   useEffect(() => {
     const fetchEmployeesData = async () => {
       const data = await dispatch(fetchEmployees());
@@ -46,14 +52,21 @@ const useAttendanceTable = () => {
     const isOnTime = checkInTime <= standardCheckInTime;
     return isOnTime;
   };
-
+  const filteredData: EMPLOYEE_ATTENDANCE_DATA[] = allEmployees.filter(
+    (employee) =>
+      employee?.firstName.toLowerCase().includes(searchText.toLowerCase()) ||
+      employee?.type.toLowerCase().includes(searchText.toLowerCase()) ||
+      employee?.designation.toLowerCase().includes(searchText.toLowerCase())
+  );
   return {
-    tableData,
+    tableData: filteredData,
     getCheckInTime,
     handleChange,
     inputEnabled,
     setInputEnabled,
     handleUpdate,
+    searchText,
+    setSearchText,
   };
 };
 

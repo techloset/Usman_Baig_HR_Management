@@ -14,7 +14,7 @@ import { INFO_BAR_PROPS } from "@/types/types";
 
 const InfoBar = ({ option, handleClick }: INFO_BAR_PROPS) => {
   return (
-    <div className="border-b-[3px] flex ms-[10px] border-borderGrey mb-5">
+    <div className="border-b-[3px] flex flex-wrap ms-[10px] border-borderGrey mb-5">
       <button
         onClick={() => handleClick(0)}
         className={`mb-[-3px] pb-2 ease-in-out duration-300 font-semibold ${

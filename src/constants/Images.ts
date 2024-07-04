@@ -45,9 +45,11 @@ import iconFileFilled from "../../public/images/FileFilled.png";
 import iconFile from "../../public/images/FileOutline.png";
 import iconNotepadFilled from "../../public/images/NotepadFilled.png";
 import iconLoginLogo from "../../public/images/LoginLogo.png";
+import iconMenu from "../../public/menu.svg";
 export {
   iconSun,
   iconFile,
+  iconMenu,
   iconAdd,
   iconLock,
   iconLogo,

@@ -19,7 +19,7 @@ const ProfessionalInformation = ({
     return null;
   }
   return (
-    <form className={`flex flex-col`}>
+    <form className={`flex flex-col flex-wrap`}>
       <div className="flex w-full">
         <Input
           value={data?.employeeId}
@@ -53,12 +53,18 @@ const ProfessionalInformation = ({
         />
       </div>
       <div className="flex w-full">
-        <Input
-          value={data?.department}
-          name={"department"}
-          type={"text"}
+        <SelectMenu
+          margin={true}
+          height="h-14"
+          width="w-full"
           onChange={handleChange}
-          placeholder={"department"}
+          label={"Department"}
+          options={[
+            { label: "Software Developers", value: "Software Development" },
+            { label: "Social media", value: "Social Media" },
+            { label: "Digital marketing", value: "Digital marketing" },
+            { label: "Video Animation", value: "Video Animation" },
+          ]}
         />
         <Input
           value={data?.designation}

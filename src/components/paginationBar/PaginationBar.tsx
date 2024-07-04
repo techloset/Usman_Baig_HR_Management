@@ -2,9 +2,9 @@ import React from "react";
 import { iconArrow, iconArrowDown } from "@/constants/Images";
 import Image from "next/image";
 
-const PaginationBar = () => {
+const PaginationBar = ({ length }: { length: number }) => {
   return (
-    <div className="mt-[14px] flex items center justify-between items-center">
+    <div className="mt-[14px] hidden md:flex items center justify-between items-center">
       <div className="flex items-center">
         <div className="me-5">Showing</div>
         <div className=" flex items-center border-[1px] font-light rounded-[10px] border-borderGrey p-3">
@@ -13,7 +13,7 @@ const PaginationBar = () => {
         </div>
       </div>
       <div className="text-[14px] font-light">
-        Showing 1 to 10 out of 60 records
+        Showing 1 to {length} out of {length} records
       </div>
       <div className="flex items-center">
         <button>

@@ -21,15 +21,15 @@ const SelectMenu = ({
   });
   return (
     <div
-      className={`relative  ${width} ${height} ${
-        margin ? "mx-[10px] m-[10px]" : ""
+      className={`relative w-[98%]  ${width} ${height} ${
+        margin ? "mx-[10px] mt-2.5" : ""
       } rounded-[10px] bg-primaryBlack border-[1px] border-borderGrey`}
     >
       <select
         onClick={handleOpen}
         onChange={handleSelectChange}
         id="countries"
-        className="appearance-none h-full gap-3 pl-4 pr-10 focus:outline-none border-none w-full text-customGrey bg-primaryBlack  rounded-lg"
+        className="appearance-none h-full gap-3 w-full pl-4 pr-10 focus:outline-none border-none text-customGrey bg-primaryBlack  rounded-lg"
       >
         <option className="custom-option">
           {!initialValue ? label : initialValue}

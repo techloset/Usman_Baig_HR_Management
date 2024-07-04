@@ -16,7 +16,7 @@ const page = () => {
       heading={"All Employees"}
       description={"All Employee Information"}
     >
-      <div className="m-[30px] border-[1px] border-borderGrey rounded-[10px] p-5">
+      <div className="ms-[10px] mt-[20px] me-[30px] border-[1px] border-borderGrey rounded-[10px] p-5">
         <div className="flex justify-between items-center">
           <SearchBar
             searchText={searchText}
@@ -38,7 +38,7 @@ const page = () => {
           </div>
         </div>
         <EmployeeTable data={allEmployees} />
-        <PaginationBar />
+        <PaginationBar length={allEmployees.length} />
       </div>
     </DefaultLayout>
   );

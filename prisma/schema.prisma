@@ -7,12 +7,12 @@ generator client {
 
 datasource db {
   provider = "mongodb"
-  url      = env("DATABASE_URL")
+  url      = "mongodb+srv://usmanbaig1572:Password@nextauth.rw2bqa7.mongodb.net/nextAuth"
 }
 
 model User{
   id String @db.ObjectId @default(auto()) @map("_id") @id
-  email String
+  email String @unique
   hashedPassword String
 
   createdAt DateTime @default(now())

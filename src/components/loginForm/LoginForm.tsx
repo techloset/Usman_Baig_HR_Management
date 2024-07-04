@@ -43,6 +43,9 @@ export default function LoginForm() {
       >
         Login
       </div>
+      <Link href={"/forgetPassword"} className="text-customOrange mt-4">
+        Forget Password?
+      </Link>
     </div>
   );
 }

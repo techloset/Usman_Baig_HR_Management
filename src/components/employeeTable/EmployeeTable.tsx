@@ -1,6 +1,11 @@
 import React from "react";
 import Image from "next/image";
-import { iconEdit, iconTrash, iconView } from "@/constants/Images";
+import {
+  iconEdit,
+  iconTrash,
+  iconView,
+  profilePhoto,
+} from "@/constants/Images";
 import { EMPLOYEE_TABLE_HEAD } from "@/constants/Constants";
 import Link from "next/link";
 import useEmployeeTable from "./useEmployeeTable";
@@ -11,7 +16,7 @@ const EmployeeTable = ({ data }: { data: EMPLOYEES_TABLE_DATA[] }) => {
   const { handleDelete } = useEmployeeTable();
   return (
     <div className="mt-[30px] shadow-md ">
-      <table className="w-full font-light text-sm  text-left rtl:text-right ">
+      <table className="w-full font-light text-sm text-left rtl:text-right ">
         <thead className="text-[16px] text-[#A2A1A8] font-light">
           <tr>
             {EMPLOYEE_TABLE_HEAD.map((item, i) => {
@@ -28,18 +33,36 @@ const EmployeeTable = ({ data }: { data: EMPLOYEES_TABLE_DATA[] }) => {
           </tr>
         </thead>
         <tbody>
+          {!data ||
+            (data.length === 0 && (
+              <tr>
+                {[...Array(7)].map((_, index) => (
+                  <td key={index}>
+                    <div className="animate-spin rounded-full my-2 h-8 w-8 border-customOrange border-t-2 "></div>
+                  </td>
+                ))}
+              </tr>
+            ))}
           {data &&
             data.length > 0 &&
             data.map((data: EMPLOYEES_TABLE_DATA, i: number) => (
               <tr className="border-b-[1px] border-borderGrey" key={i}>
                 <th scope="row" className="flex items-center pt-[10px]">
-                  {/* <Image
-                    src={data?.photoURL}
-                    height={36}
-                    width={36}
-                    className="rounded-[18px]"
-                    alt="Photo"
-                  /> */}
+                  {data.photoURL ? (
+                    <img
+                      src={data.photoURL}
+                      className="rounded-[18px] h-[36px] w-[36px] hidden sm:flex"
+                      alt="Photo"
+                    />
+                  ) : (
+                    <Image
+                      src={profilePhoto}
+                      height={36}
+                      width={36}
+                      className="rounded-[18px] hidden sm:flex"
+                      alt="Photo"
+                    />
+                  )}
                   <div className="text-[16px] ms-[10px]">
                     {data?.firstName + " " + data?.lastName}
                   </div>

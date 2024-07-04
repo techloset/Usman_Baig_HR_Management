@@ -2,11 +2,7 @@
 import toast from "react-hot-toast";
 import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useAppDispatch, useAppSelector } from "@/redux/store";
-import {
-  CustomChangeEvent,
-  EMPLOYEES_TABLE_DATA,
-  EMPLOYEE_ATTENDANCE_DATA,
-} from "@/types/types";
+import { CustomChangeEvent, EMPLOYEE_ATTENDANCE_DATA } from "@/types/types";
 import { fetchEmployees } from "@/redux/slices/employeesSlice";
 import { bulkUpdateAttendance } from "@/redux/slices/attendanceUpdateSlice";
 
@@ -25,12 +21,18 @@ const useAttendanceTable = () => {
     };
     fetchEmployeesData();
   }, [dispatch, !allEmployees]);
+  const filteredData = tableData.filter(
+    (employee) =>
+      employee?.firstName.toLowerCase().includes(searchText.toLowerCase()) ||
+      employee?.type.toLowerCase().includes(searchText.toLowerCase()) ||
+      employee?.designation.toLowerCase().includes(searchText.toLowerCase())
+  );
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement> | CustomChangeEvent,
     index: number
   ) => {
     const { name, value } = e.target;
-    const updatedTableData = [...tableData];
+    const updatedTableData = [...filteredData];
     updatedTableData[index] = { ...updatedTableData[index], [name]: value };
     setTableData(updatedTableData);
   };
@@ -52,12 +54,6 @@ const useAttendanceTable = () => {
     const isOnTime = checkInTime <= standardCheckInTime;
     return isOnTime;
   };
-  const filteredData: EMPLOYEE_ATTENDANCE_DATA[] = allEmployees.filter(
-    (employee) =>
-      employee?.firstName.toLowerCase().includes(searchText.toLowerCase()) ||
-      employee?.type.toLowerCase().includes(searchText.toLowerCase()) ||
-      employee?.designation.toLowerCase().includes(searchText.toLowerCase())
-  );
   return {
     tableData: filteredData,
     getCheckInTime,

@@ -1,26 +1,10 @@
 "use client";
-import { getServerSession } from "next-auth";
-import { authOptions } from "../../../libs/authoptions";
-import { redirect } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const useDefaultLayout = () => {
-  const [session, setSession] = useState<any>();
+  const [isSideBarOpen, setIsSideBarOpen] = useState(true);
 
-  useEffect(() => {
-    const checkSession = async () => {
-      const session = await getServerSession(authOptions);
-      if (!session?.user?.email) {
-        redirect("/login");
-      } else {
-        setSession(session);
-      }
-    };
-
-    checkSession();
-  }, []);
-
-  return { session };
+  return { isSideBarOpen, setIsSideBarOpen };
 };
 
 export default useDefaultLayout;

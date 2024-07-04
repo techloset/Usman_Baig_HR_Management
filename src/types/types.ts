@@ -113,6 +113,8 @@ export type INFO_BAR_PROPS = {
 export type LAYOUT_PROPS = {
   heading: string;
   description: string;
+  isSideBarOpen: boolean;
+  setIsSideBarOpen: (value: boolean) => void;
 };
 export type EMPLOYEE_POST_DATA = {
   address: string;

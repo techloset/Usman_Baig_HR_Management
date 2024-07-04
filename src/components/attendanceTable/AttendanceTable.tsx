@@ -29,7 +29,7 @@ const AttendanceTable = ({
     setSearchText,
   } = useAttendanceTable();
   return (
-    <div className="ms-[10px] me-[30px] rounded-[10px] border-[1px] p-5 border-borderGrey mb-[30px] mt-5 shadow-md ">
+    <div className="ms-[10px] me-[30px] overflow-x-auto rounded-[10px] border-[1px] p-5 border-borderGrey mb-[30px] mt-5 shadow-md ">
       <div className={`mb-[30px] ${SearchBarDisplay}`}>
         <SearchBar
           setSearchText={setSearchText}
@@ -73,7 +73,7 @@ const AttendanceTable = ({
               !showAttendance ? 5 : 6
             ).map((heading, i) => {
               return (
-                <th scope="col" className="py-[10px]" key={i}>
+                <th scope="col" className="py-[10px] " key={i}>
                   {heading}
                 </th>
               );
@@ -81,24 +81,45 @@ const AttendanceTable = ({
           </tr>
         </thead>
         <tbody>
+          {!tableData ||
+            (tableData.length === 0 && (
+              <tr>
+                {[...Array(5)].map((_, index) => (
+                  <td key={index}>
+                    <div className="animate-spin rounded-full my-2 h-8 w-8 border-customOrange border-t-2 "></div>
+                  </td>
+                ))}
+              </tr>
+            ))}
           {tableData &&
             tableData.map((data: EMPLOYEE_ATTENDANCE_DATA, i: number) => {
               const status = getCheckInTime(data?.checkIn);
               return (
                 <tr className="border-t-[1px] border-borderGrey" key={i}>
                   <th scope="row" className=" flex items-center pt-[10px] ">
-                    <Image
-                      src={profilePhoto}
-                      height={36}
-                      width={36}
-                      className="rounded-[18px]"
-                      alt="Photo"
-                    />
+                    {data.photoURL ? (
+                      <img
+                        src={data.photoURL}
+                        className="rounded-[18px] h-[36px] w-[36px] hidden sm:flex"
+                        alt="Photo"
+                      />
+                    ) : (
+                      <Image
+                        src={profilePhoto}
+                        height={36}
+                        width={36}
+                        className="rounded-[18px] hidden sm:flex"
+                        alt="Photo"
+                      />
+                    )}
+
                     <div className="text-[16px] ms-[10px] ">
                       {data?.firstName}
                     </div>
                   </th>
-                  <td className="pt-[10px]">{data?.designation}</td>
+                  <td className="pt-[10px]">
+                    {data?.designation.slice(0, 12)}
+                  </td>
                   <td className="pt-[10px]">
                     <input
                       className="bg-primaryBlack w-24 outline-none"
@@ -141,6 +162,7 @@ const AttendanceTable = ({
                         options={[
                           { label: "Present", value: "present" },
                           { label: "Absent", value: "absent" },
+                          { label: "Leave", value: "leave" },
                         ]}
                         onChange={(e) => handleChange(e, i)}
                       />
@@ -154,7 +176,7 @@ const AttendanceTable = ({
           {!tableData && <Loader />}
         </tbody>
       </table>
-      <PaginationBar />
+      <PaginationBar length={tableData.length} />
     </div>
   );
 };

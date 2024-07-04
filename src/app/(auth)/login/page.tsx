@@ -3,7 +3,7 @@ import LoginForm from "../../../components/loginForm/LoginForm";
 import Image from "next/image";
 import { iconLoginLogo } from "@/constants/Images";
 
-export default function LoginPage() {
+export default function page() {
   return (
     <div className="h-screen w-full flex items-center justify-center bg-primaryBlack">
       <div className="w-[445px] ">

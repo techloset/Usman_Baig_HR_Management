@@ -20,7 +20,7 @@ const useOtp = () => {
       }
     }
   }, []);
-  const handleSubmit = async (event: any) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
     try {
       if (!otp.otp || otp.otp == "") {
@@ -34,7 +34,7 @@ const useOtp = () => {
         toast.error("OTP not matched");
         return;
       }
-      router.push("/newPassword");
+      router.push("/changepassword");
     } catch (error) {
       console.error("Error occurred:", error);
     }

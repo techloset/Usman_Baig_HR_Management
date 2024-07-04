@@ -1,7 +1,8 @@
 import { signOut } from "next-auth/react";
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, MouseEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
+import toast from "react-hot-toast";
 const useForgetPassForm = () => {
   const [state, setState] = useState({ email: "" });
   const [loading, setLoading] = useState(false);
@@ -16,13 +17,13 @@ const useForgetPassForm = () => {
     setState((s) => ({ ...s, [event.target.name]: event.target.value }));
   };
   const otp = Math.floor(100000 + Math.random() * 900000);
-  const sendOTP = async (event: any) => {
+  const sendOTP = async (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
     const data = {
-      service_id: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || "",
-      template_id: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID || "",
-      user_id: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_ID || "",
+      service_id: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+      template_id: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+      user_id: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_ID,
       template_params: {
         to_email: state.email,
         to_name: state.email,
@@ -37,13 +38,15 @@ const useForgetPassForm = () => {
         "https://api.emailjs.com/api/v1.0/email/send",
         data
       );
+      console.log("res from email js", res.data);
       localStorage.setItem(
         "otpData",
         JSON.stringify({ email: state.email, otp })
       );
+      toast.success("OTP sent Successfully!");
       router.push("/otp");
-      console.log(res.data);
     } catch (error) {
+      toast.error("Something went wrong!");
       console.log("error", error);
     }
   };

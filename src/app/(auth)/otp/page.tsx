@@ -5,7 +5,7 @@ import Image from "next/image";
 import useOtp from "./useOtp";
 import { iconArrow } from "@/constants/Images";
 
-export default function Page() {
+export default function page() {
   const { handleSubmit, handleChange } = useOtp();
   return (
     <section className="bg-black h-screen flex justify-center items-center w-full text-white ">

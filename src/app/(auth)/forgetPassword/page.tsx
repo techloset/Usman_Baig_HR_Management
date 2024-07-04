@@ -1,5 +1,4 @@
 import ForgetPassForm from "@/components/forgetPassForm/ForgetPassForm";
-import LoginForm from "@/components/loginForm/LoginForm";
 import { iconArrow } from "@/constants/Images";
 import Image from "next/image";
 import Link from "next/link";

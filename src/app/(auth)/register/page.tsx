@@ -1,10 +1,9 @@
 import React from "react";
 import RegisterForm from "../../../components/registerForm/RegisterForm";
-import Link from "next/link";
 import Image from "next/image";
 import { iconLoginLogo } from "@/constants/Images";
 
-export default function RegisterPage() {
+export default function page() {
   return (
     <>
       <div className="h-screen w-full flex items-center justify-center bg-primaryBlack">

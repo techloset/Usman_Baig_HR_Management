@@ -16,7 +16,7 @@ export default function ForgetPassForm() {
         disabled={loading}
       />
       <div
-        onClick={sendOTP}
+        onClick={() => sendOTP}
         className="px-10 py-3 bg-customOrange w-full rounded-[10px] mt-5 text-center text-white disabled:opacity-70 cursor-pointer"
       >
         Send OTP

@@ -1,5 +1,6 @@
 "use client";
 
+import FormInput from "@/components/formInput/FormInput";
 import useChangePassword from "./useChangePassword";
 
 export default function page() {
@@ -7,51 +8,35 @@ export default function page() {
 
   return (
     <section className="bg-primaryBlack  h-screen flex p-4 justify-center items-center text-white  ">
-      <div className="flex flex-col md:w-[445px] w-full justify-center py-8 items-center  lg:py-0">
-        <div className="w-full rounded-lg shadow ">
-          <div className="md:w-[445px]  my-8 w-auto">
-            <p className="my-5 text-lg">Update Your Password</p>
-            <form
-              className="space-y-4 md:space-y-6 w-full"
-              onSubmit={handleSubmit}
+      <div className="flex flex-col md:w-[445px] w-full justify-center py-8 items-center bg-greyShade rounded-[10px]  lg:py-0">
+        <div className="md:w-[445px]  w-auto">
+          <p className="mb-8 text-lg flex font-semibold justify-center  ">
+            Update Your Password
+          </p>
+          <form
+            className="space-y-4 md:space-y-6 px-5 w-full"
+            onSubmit={handleSubmit}
+          >
+            <FormInput
+              label="New Password"
+              type="password"
+              onChange={handleChange}
+              name="newPassword"
+            />
+            <FormInput
+              label="Confirm Password"
+              type="password"
+              name="confirmPassword"
+              onChange={handleChange}
+            />
+            <button
+              type="submit"
+              onClick={handleSubmit}
+              className="px-10 py-3 bg-customOrange w-full rounded-[10px] mt-5 text-center text-white disabled:opacity-70 cursor-pointer"
             >
-              <div className="w-auto border-[1px] border-primary rounded-lg p-2">
-                <label className="block mb-2 text-sm font-medium text-primary dark:text-primary">
-                  New Password
-                </label>
-                <input
-                  type="password"
-                  onChange={handleChange}
-                  name="newPassword"
-                  id="newPassword"
-                  className="outline-none bg-transparent  text-white sm:text-sm block w-full p-2.5  focus:outline-none"
-                  placeholder="new password"
-                  required
-                />
-              </div>
-              <div className="w-auto border-[1px] border-primary rounded-lg p-2">
-                <label className="block mb-2 text-sm font-medium text-primary dark:text-primary">
-                  Conform Password
-                </label>
-                <input
-                  type="password"
-                  name="confirmPassword"
-                  id="confirmPassword"
-                  onChange={handleChange}
-                  placeholder="confirm new password"
-                  className="outline-none bg-transparent  text-white sm:text-sm block w-full p-2.5  focus:outline-none"
-                  required
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full text-white bg-primary hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-prborder-primary dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-              >
-                Password Update
-              </button>
-            </form>
-          </div>
+              Password Update
+            </button>
+          </form>
         </div>
       </div>
     </section>

@@ -15,12 +15,13 @@ export default function ForgetPassForm() {
         onChange={handleChange}
         disabled={loading}
       />
-      <div
-        onClick={() => sendOTP}
+      <button
+        type="submit"
+        onClick={sendOTP}
         className="px-10 py-3 bg-customOrange w-full rounded-[10px] mt-5 text-center text-white disabled:opacity-70 cursor-pointer"
       >
         Send OTP
-      </div>
+      </button>
     </div>
   );
 }

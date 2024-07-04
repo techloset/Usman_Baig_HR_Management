@@ -34,7 +34,7 @@ const useOtp = () => {
         toast.error("OTP not matched");
         return;
       }
-      router.push("/changepassword");
+      router.push("/changePassword");
     } catch (error) {
       console.error("Error occurred:", error);
     }

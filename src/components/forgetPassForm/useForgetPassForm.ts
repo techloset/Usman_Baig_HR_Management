@@ -1,5 +1,5 @@
 import { signOut } from "next-auth/react";
-import { ChangeEvent, MouseEvent, useEffect, useState } from "react";
+import { ChangeEvent, FormEvent, MouseEvent, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -17,7 +17,7 @@ const useForgetPassForm = () => {
     setState((s) => ({ ...s, [event.target.name]: event.target.value }));
   };
   const otp = Math.floor(100000 + Math.random() * 900000);
-  const sendOTP = async (event: MouseEvent<HTMLButtonElement>) => {
+  const sendOTP = async (event: FormEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
     const data = {
@@ -53,7 +53,7 @@ const useForgetPassForm = () => {
   useEffect(() => {
     setTimeout(function () {
       localStorage.removeItem("otpData");
-    }, 60 * 1000);
+    }, 2 * 60 * 1000);
   }, [otp]);
 
   return { loading, state, handleChange, sendOTP };

@@ -1,10 +1,8 @@
+"use client";
 import { useEffect } from "react";
 import useLocalStorage from "./useLocalStorage";
 
-type ColorMode = string;
-type ColorModeSetter = (value: ColorMode) => void;
-
-const useColorMode: () => [ColorMode, ColorModeSetter] = () => {
+const useColorMode = () => {
   const [colorMode, setColorMode] = useLocalStorage("color-theme", "light");
 
   useEffect(() => {

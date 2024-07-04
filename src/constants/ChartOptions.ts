@@ -1,7 +1,8 @@
 import { ApexOptions } from "apexcharts";
+import { COLORS } from "./Colors";
 
 export const options: ApexOptions = {
-  colors: ["#E25319", "#FEB85B", "#F45B69"],
+  colors: [COLORS.OrangeLightShade, COLORS.yellowShade, COLORS.pinkShade],
   chart: {
     type: "bar",
     height: 335,

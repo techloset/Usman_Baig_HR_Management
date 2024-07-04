@@ -74,7 +74,6 @@ export const PUT = async (request: NextRequest) => {
         data,
       });
 
-      console.log("Updated user:", employee);
       return new NextResponse(
         JSON.stringify({ data: employee, success: true }),
         {

@@ -1,6 +1,7 @@
 import React from "react";
 import { UploadDropzone } from "@/utils/uploadthing";
 import useUploadFile from "./useUploadFile";
+import toast from "react-hot-toast";
 
 const UploadFile = ({
   title,
@@ -34,11 +35,10 @@ const UploadFile = ({
           }}
           endpoint="imageUploader"
           onClientUploadComplete={(res) => {
-            console.log("Files: ", res);
             if (res && res.length > 0) {
               onFileChange(res[0]?.url);
             }
-            console.log("Upload Completed");
+            toast.success("Upload Completed");
           }}
           onUploadError={(error: Error) => {
             alert(`ERROR! ${error.message}`);

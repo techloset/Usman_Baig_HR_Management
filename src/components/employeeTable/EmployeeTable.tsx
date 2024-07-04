@@ -17,7 +17,7 @@ const EmployeeTable = ({ data }: { data: EMPLOYEES_TABLE_DATA[] }) => {
   return (
     <div className="mt-[30px] shadow-md ">
       <table className="w-full font-light text-sm text-left rtl:text-right ">
-        <thead className="text-[16px] text-[#A2A1A8] font-light">
+        <thead className="text-[16px] text-customGrey font-light">
           <tr>
             {EMPLOYEE_TABLE_HEAD.map((item, i) => {
               return (
@@ -72,7 +72,7 @@ const EmployeeTable = ({ data }: { data: EMPLOYEES_TABLE_DATA[] }) => {
                 <td className="pt-[10px]">{data.designation}</td>
                 <td className="pt-[10px]">{data?.employmentType}</td>
                 <td className="pt-[10px]">
-                  <div className="w-fit text-[12px] bg-[#E253191A] text-customOrange rounded-[4px] px-[9px] py-[3px] font-light">
+                  <div className="w-fit text-[12px] bg-darkOrange text-customOrange rounded-[4px] px-[9px] py-[3px] font-light">
                     Permanent
                   </div>
                 </td>
@@ -80,9 +80,9 @@ const EmployeeTable = ({ data }: { data: EMPLOYEES_TABLE_DATA[] }) => {
                   <Link href={`/employees/${data.id}`}>
                     <Image src={iconView} alt="iconView" />
                   </Link>
-                  <button>
+                  <Link href={`/employees/${data.id}`}>
                     <Image src={iconEdit} alt="iconEdit" />
-                  </button>
+                  </Link>
                   <button onClick={() => handleDelete(data?.id)}>
                     <Image src={iconTrash} alt="iconTrash" />
                   </button>

@@ -11,7 +11,7 @@ const Documents = ({
   data,
   setData,
 }: EMPLOYEE_DOCUMENTS_PROPS) => {
-  const { state, handleFileChange, handleSubmit } = useDocuments({
+  const { handleFileChange } = useDocuments({
     data,
     setData,
   });

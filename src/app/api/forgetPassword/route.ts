@@ -7,8 +7,6 @@ export const PUT = async (request: NextRequest) => {
     const { email, hashedPassword }: { email: string; hashedPassword: string } =
       await request.json();
 
-    console.log(email, hashedPassword, "< ===hashedPassword");
-
     const userLogin = await prisma.user.findUnique({
       where: { email: email },
     });

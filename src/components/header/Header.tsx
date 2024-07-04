@@ -34,7 +34,7 @@ const Header = ({
         <SearchBar searchText={""} setSearchText={() => {}} width={261} />
         <Link
           href={"/notifications"}
-          className="bg-[#A2A1A81A] ms-5 w-[50px] h-[50px] flex items-center rounded-[10px] justify-center"
+          className="bg-lightGreyShade ms-5 w-[50px] h-[50px] flex items-center rounded-[10px] justify-center"
         >
           <Image src={iconBell} className="h-6 w-6" alt="IconBell" />
         </Link>

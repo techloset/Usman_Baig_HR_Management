@@ -44,7 +44,7 @@ const Sidebar = ({
                   <div
                     className={`${
                       isActive
-                        ? "border-l-[3px] border-customOrange text-customOrange bg-[#E253190D]"
+                        ? "border-l-[3px] border-customOrange text-customOrange bg-orangeShade"
                         : ""
                     } h-[50px] my-[5px] flex`}
                   >

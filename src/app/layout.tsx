@@ -7,6 +7,7 @@ import { ourFileRouter } from "./api/uploadthing/core";
 import NextAuthSessionProvider from "../../providers/NextAuthSessionProvider";
 import ToastProvider from "../../providers/ToastProvider";
 import { Providers } from "../../providers/StoreProvider";
+import DarkModeProvider from "../../providers/DarkModeProvider";
 
 const inter = Lexend({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({
     <html lang="en">
       <NextSSRPlugin routerConfig={extractRouterConfig(ourFileRouter)} />
       <body className={inter.className}>
+        <DarkModeProvider />
         <ToastProvider />
         <Providers>
           <NextAuthSessionProvider>{children}</NextAuthSessionProvider>

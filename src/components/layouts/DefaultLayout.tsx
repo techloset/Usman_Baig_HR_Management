@@ -14,8 +14,9 @@ export default function DefaultLayout({
   description: string;
 }) {
   const { isSideBarOpen, setIsSideBarOpen } = useDefaultLayout();
+
   return (
-    <div className="flex min-h-screen bg-primaryBlack text-white">
+    <div className="flex min-h-screen dark:bg-primaryBlack bg-greyShade text-white">
       <Sidebar
         isSideBarOpen={isSideBarOpen}
         setIsSideBarOpen={setIsSideBarOpen}

@@ -24,7 +24,6 @@ export const addEmployee = createAsyncThunk(
   async (employeeData: EMPLOYEE_POST_DATA) => {
     try {
       const response = await instance.post(`employee`, employeeData);
-      console.log("Added new employee:", response.data);
       return response.data;
     } catch (error: any) {
       console.error("Error adding employee:", error);
@@ -38,7 +37,6 @@ export const deleteEmployee = createAsyncThunk(
   async (id: string) => {
     try {
       const response = await instance.delete("employee", { data: { id } });
-      console.log("Deleted employee with id:", id);
       return response.data;
     } catch (error: any) {
       console.error("Error deleting employee:", error);
@@ -54,7 +52,6 @@ export const updateEmployee = createAsyncThunk(
         id,
         ...data,
       });
-      console.log("Updated employee with id:", id);
 
       return response.data;
     } catch (error: any) {
@@ -87,7 +84,6 @@ const employeeSlice = createSlice({
       })
       .addCase(updateEmployee.fulfilled, (state, action) => {
         state.employeeData = action.payload;
-        console.log("Employee updated successfully:", action.payload);
       })
       .addCase(addEmployee.fulfilled, (state, action) => {
         state.employeeData = action.payload;

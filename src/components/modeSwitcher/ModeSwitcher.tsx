@@ -1,3 +1,4 @@
+"use client";
 import { iconMoon, iconSun } from "@/constants/Images";
 import useColorMode from "@/hooks/useColorMode";
 import Image from "next/image";
@@ -6,16 +7,16 @@ const ModeSwitcher = () => {
   const [isActive, setIsActive] = useState(false);
   const [colorMode, setColorMode] = useColorMode();
 
-  const toggle = () => {
-    setIsActive(!isActive);
-    setColorMode(colorMode === "light" ? "dark" : "light");
-  };
-
   return (
     <div className={` flex mb-[30px] mx-auto relative`}>
       <button
-        className={`w-[220px] h-[50px] bg-[#A2A1A80D] rounded-[10px] flex items-center`}
-        onClick={toggle}
+        className={`w-[220px] h-[50px] bg-lightGreyShade  rounded-[10px] flex items-center`}
+        onClick={() => {
+          if (typeof setColorMode === "function") {
+            setColorMode(colorMode === "light" ? "dark" : "light");
+            setIsActive(!isActive);
+          }
+        }}
       >
         <div className="z-50 w-[220px] flex justify-between">
           <div className="flex ms-[18px] items-center">

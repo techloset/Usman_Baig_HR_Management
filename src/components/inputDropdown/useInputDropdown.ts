@@ -14,7 +14,6 @@ const useInputDropdown = ({ label, onChange }: INPUT_DROPDOWN_PROPS) => {
         value: optionValue,
       },
     });
-    console.log("optionValue", optionValue);
   };
   return { toggleDropdown, isOpen, handleOptionSelect };
 };

@@ -9,8 +9,6 @@ const useDocuments = ({
   data: EMPLOYEE_DOCUMENTS_DATA | undefined;
   setData: Dispatch<SetStateAction<EMPLOYEE_DOCUMENTS_DATA>>;
 }) => {
-  const [state, setState] = useState(INITIAL_STATE_DOCUMENTS_FILES);
-
   const handleFileChange = (key: string, file: string) => {
     setData((prevState) => ({
       ...prevState,
@@ -18,15 +16,8 @@ const useDocuments = ({
     }));
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    console.log("Submitting documents:", state);
-  };
-
   return {
-    state,
     handleFileChange,
-    handleSubmit,
   };
 };
 

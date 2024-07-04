@@ -37,7 +37,6 @@ const useViewEmployee = ({ id, setName }: EMPLOYEE_DETAILS_PROPS) => {
       };
 
       await dispatch(updateEmployee(mergedData));
-      console.log("Merged Data:", mergedData);
       toast.success("Employee Updated Successfully!");
     } catch (error) {
       console.log("error", error);

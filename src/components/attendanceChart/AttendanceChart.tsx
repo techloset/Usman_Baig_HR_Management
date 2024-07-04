@@ -33,12 +33,12 @@ const AttendanceChart: React.FC = () => {
   handleReset;
 
   return (
-    <div className="flex flex-col w-[1069px] bg-primaryBlack ms-2.5 mt-5 h-[534px] border-[1px] border-borderGrey rounded-[10px]">
+    <div className="flex flex-col 2xl:w-[1069px] bg-primaryBlack ms-2.5 me-[30px]  mt-5 h-[534px] border-[1px] border-borderGrey rounded-[10px]">
       <div className="mb-4 justify-between mt-[25px] flex">
         <div>
           <h4 className="text-xl font-semibold ms-8 ">Attendance Overview</h4>
         </div>
-        <div className="relative z-20 flex border-[1px] p-[10px] border-borderGrey rounded-[10px] bg-primaryBlack me-[30px]">
+        <div className="relative z-20 hidden  sm:flex border-[1px] p-[10px] border-borderGrey rounded-[10px] bg-primaryBlack me-[30px]">
           <select className="relative z-20 inline-flex appearance-none bg-transparent py-1 pl-3 pr-8 text-sm font-medium outline-none">
             <option>This Week</option>
             <option>Last Week</option>

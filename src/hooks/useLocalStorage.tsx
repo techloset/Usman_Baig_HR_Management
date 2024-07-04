@@ -18,14 +18,12 @@ function useLocalStorage<T>(
       return initialValue;
     }
   });
-
   useEffect(() => {
     try {
       const valueToStore =
         typeof storedValue === "function"
           ? storedValue(storedValue)
           : storedValue;
-
       if (typeof window !== "undefined") {
         window.localStorage.setItem(key, JSON.stringify(valueToStore));
       }

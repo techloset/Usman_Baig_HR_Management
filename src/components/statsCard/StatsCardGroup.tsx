@@ -8,6 +8,7 @@ import {
   iconRedArrow,
   orangeUsers,
 } from "@/constants/Images";
+import { COLORS } from "@/constants/Colors";
 
 const StatsCardGroup = ({ employeesArray }: { employeesArray: number }) => {
   return (
@@ -19,8 +20,8 @@ const StatsCardGroup = ({ employeesArray }: { employeesArray: number }) => {
         date={"July 16, 2023"}
         percent={23}
         src={iconGreenArrow}
-        BgColor={"#30BE821A"}
-        textColor={"#30BE82"}
+        BgColor={COLORS.greenDark}
+        textColor={COLORS.greenShade}
         iconAlt={"OrangeUser"}
         srcAlt={"iconUp"}
       />
@@ -31,8 +32,8 @@ const StatsCardGroup = ({ employeesArray }: { employeesArray: number }) => {
         date={"July 16, 2023"}
         percent={12}
         src={iconRedArrow}
-        BgColor={"#F45B691A"}
-        textColor={"#F45B69"}
+        BgColor={COLORS.redDark}
+        textColor={COLORS.redShade}
         iconAlt={"OrangeUser"}
         srcAlt={"iconDown"}
       />
@@ -43,8 +44,8 @@ const StatsCardGroup = ({ employeesArray }: { employeesArray: number }) => {
         date={"July 16, 2023"}
         percent={23}
         src={iconGreenArrow}
-        BgColor={"#30BE821A"}
-        textColor={"#30BE82"}
+        BgColor={COLORS.greenDark}
+        textColor={COLORS.greenShade}
         iconAlt={"OrangeUser"}
         srcAlt={"iconUp"}
       />
@@ -55,8 +56,8 @@ const StatsCardGroup = ({ employeesArray }: { employeesArray: number }) => {
         date={"July 16, 2023"}
         percent={23}
         src={iconGreenArrow}
-        BgColor={"#30BE821A"}
-        textColor={"#30BE82"}
+        BgColor={COLORS.greenDark}
+        textColor={COLORS.greenShade}
         iconAlt={"OrangeUser"}
         srcAlt={"iconUp"}
       />

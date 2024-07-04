@@ -7,6 +7,7 @@ import SelectMenu from "../selectMenu/SelectMenu";
 import { UploadButton } from "@/utils/uploadthing";
 import usePersonalInfomation from "./usePersonalInfomation";
 import { EMPLOYEE_PERSONAL_INFO_PROPS } from "@/types/types";
+import toast from "react-hot-toast";
 
 const PersonalInfomation = ({
   handleClick,
@@ -48,13 +49,12 @@ const PersonalInfomation = ({
           }}
           endpoint="imageUploader"
           onClientUploadComplete={(res) => {
-            console.log("Files: ", res[0]?.url);
             setData((data) => ({
               ...data,
               photoURL: res[0]?.url,
             }));
             setProfileURL(res[0]?.url);
-            console.log("Upload Completed");
+            toast.success("Upload Completed");
           }}
           onUploadError={(error: Error) => {
             alert(`ERROR! ${error.message}`);

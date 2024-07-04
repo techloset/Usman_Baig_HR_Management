@@ -12,7 +12,7 @@ function Dashboard() {
   return (
     <>
       <StatsCardGroup employeesArray={employeeArray} />
-      {/* <AttendanceChart /> */}
+      <AttendanceChart />
       <AttendanceTable
         showAttendance={false}
         display={"flex"}

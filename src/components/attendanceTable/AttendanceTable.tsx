@@ -12,6 +12,7 @@ import {
 } from "@/types/types";
 import Loader from "../loader/Loader";
 import SelectMenu from "../selectMenu/SelectMenu";
+import Link from "next/link";
 
 const AttendanceTable = ({
   display,
@@ -61,9 +62,12 @@ const AttendanceTable = ({
 
       <div className={` ${display} mb-[25px] items-center justify-between`}>
         <div className="text-[20px] font-semibold ">Attendance Overview</div>
-        <div className="border-[1px] py-[9px] px-[10px] rounded-[10px] border-borderGrey">
+        <Link
+          href={"/attendance"}
+          className="border-[1px] py-[9px] px-[10px] rounded-[10px] border-borderGrey"
+        >
           View All
-        </div>
+        </Link>
       </div>
       <table className="w-full font-light text-sm  text-left rtl:text-right ">
         <thead className="text-[16px] text-customGrey font-light">

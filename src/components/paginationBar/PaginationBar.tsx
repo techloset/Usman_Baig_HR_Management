@@ -8,7 +8,7 @@ const PaginationBar = ({ length }: { length: number }) => {
       <div className="flex items-center">
         <div className="me-5">Showing</div>
         <div className=" flex items-center border-[1px] font-light rounded-[10px] border-borderGrey p-3">
-          10
+          {length}
           <Image className="ms-4" src={iconArrowDown} alt="iconArrowDown" />
         </div>
       </div>
@@ -31,9 +31,15 @@ const PaginationBar = ({ length }: { length: number }) => {
           >
             1
           </button>
-          <button className={`px-3 py-[7px] mx-[5px]`}>2</button>
-          <button className={`px-3 py-[7px] mx-[5px]`}>3</button>
-          <button className={`px-3 py-[7px] mx-[5px]`}>4</button>
+          {length >= 10 && (
+            <button className={`px-3 py-[7px] mx-[5px]`}>2</button>
+          )}
+          {length >= 20 && (
+            <button className={`px-3 py-[7px] mx-[5px]`}>3</button>
+          )}
+          {length >= 30 && (
+            <button className={`px-3 py-[7px] mx-[5px]`}>4</button>
+          )}
         </div>
         <button>
           <Image

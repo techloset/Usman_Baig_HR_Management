@@ -10,9 +10,9 @@ export default function page() {
   const { handleSubmit, handleChange } = useOtp();
   return (
     <section className="bg-primaryBlack h-screen flex justify-center items-center w-full text-white ">
-      <div className="flex flex-col bg-greyShade items-center max-w-[445px] max-h-[561px] justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-        <div className="w-fullrounded-lg shadow  md:mt-0 sm:max-w-md xl:p-0">
-          <Link href={"/forgetPassword"} className="flex">
+      <div className="flex flex-col  items-center max-w-[445px] max-h-[561px] justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
+        <div className="w-fullrounded-lg rounded-[10px] bg-greyShade shadow  md:mt-0 sm:max-w-md xl:p-0">
+          <Link href={"/forgetPassword"} className="flex mt-5">
             <Image src={iconArrow} alt="Icon" className="ms-6" />
             <span className="">Back</span>
           </Link>

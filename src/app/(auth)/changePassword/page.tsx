@@ -9,7 +9,7 @@ export default function page() {
   return (
     <section className="bg-primaryBlack  h-screen flex p-4 justify-center items-center text-white  ">
       <div className="flex flex-col md:w-[445px] w-full justify-center py-8 items-center bg-greyShade rounded-[10px]  lg:py-0">
-        <div className="md:w-[445px]  w-auto">
+        <div className="md:w-[445px] w-auto py-8 ">
           <p className="mb-8 text-lg flex font-semibold justify-center  ">
             Update Your Password
           </p>

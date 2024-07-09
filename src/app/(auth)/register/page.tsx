@@ -6,7 +6,7 @@ import { iconLoginLogo } from "@/constants/Images";
 export default function page() {
   return (
     <>
-      <div className="h-screen w-full flex items-center justify-center bg-primaryBlack">
+      <div className="min-h-screen py-5 w-full flex items-center justify-center bg-primaryBlack">
         <div className="w-[445px] ">
           <Image
             src={iconLoginLogo}

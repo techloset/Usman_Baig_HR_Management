@@ -7,12 +7,12 @@ import { fetchEmployees } from "@/redux/slices/employeesSlice";
 import { bulkUpdateAttendance } from "@/redux/slices/attendanceUpdateSlice";
 
 const useAttendanceTable = () => {
-  const [inputEnabled, setInputEnabled] = useState(false);
+  const [inputEnabled, setInputEnabled] = useState<Boolean>(false);
   const [searchText, setSearchText] = useState("");
   const [tableData, setTableData] = useState<EMPLOYEE_ATTENDANCE_DATA[]>([]);
   const dispatch = useAppDispatch();
   const allEmployees: EMPLOYEE_ATTENDANCE_DATA[] = useAppSelector(
-    (state) => state.employees.employeeData
+    (state) => state.employees?.employeeData
   );
   useEffect(() => {
     const fetchEmployeesData = async () => {
@@ -21,7 +21,7 @@ const useAttendanceTable = () => {
     };
     fetchEmployeesData();
   }, [dispatch, !allEmployees]);
-  const filteredData = tableData.filter(
+  const filteredData = tableData?.filter(
     (employee) =>
       employee?.firstName.toLowerCase().includes(searchText.toLowerCase()) ||
       employee?.type.toLowerCase().includes(searchText.toLowerCase()) ||

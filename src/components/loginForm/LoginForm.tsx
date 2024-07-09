@@ -8,7 +8,7 @@ import Link from "next/link";
 export default function LoginForm() {
   const { loading, state, login, handleChange } = useLoginForm();
   return (
-    <div className="flex flex-col items-center max-w-[445px] ">
+    <div className="flex flex-col items-center max-w-[445px]">
       <FormInput
         label="Email"
         name={"email"}

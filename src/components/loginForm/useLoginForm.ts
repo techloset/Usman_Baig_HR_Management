@@ -19,6 +19,11 @@ const useLoginForm = () => {
   const login = async () => {
     setLoading(true);
     const { email, password } = state;
+    if (!email || !password) {
+      toast.error("Please fill in all fields");
+      setLoading(false);
+      return;
+    }
     const login = await signIn("credentials", {
       email,
       password,
@@ -26,7 +31,7 @@ const useLoginForm = () => {
     });
 
     if (login?.ok) {
-      toast.success("Correct login");
+      toast.success("User Login Successfully!");
       window.location.assign("/");
     } else if (login?.error) {
       console.error(login?.error);

@@ -21,13 +21,16 @@ const useRegisterForm = () => {
     setLoading(true);
     try {
       const { email, password } = state;
+      if (!email || !password) {
+        toast.error("Please fill in all fields");
+        setLoading(false);
+        return;
+      }
       await axios.post("/api/register", {
         email,
         password,
       });
-
-      toast.success("Successfully registered");
-
+      toast.success("User registered Successfully!");
       router.push("/login");
     } catch (err: any) {
       console.log(err?.response?.data);

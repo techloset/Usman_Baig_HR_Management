@@ -10,7 +10,6 @@ import {
   ATTENDANCE_TABLE_PROPS,
   EMPLOYEE_ATTENDANCE_DATA,
 } from "@/types/types";
-import Loader from "../loader/Loader";
 import SelectMenu from "../selectMenu/SelectMenu";
 import Link from "next/link";
 
@@ -177,10 +176,10 @@ const AttendanceTable = ({
                 </tr>
               );
             })}
-          {!tableData && <Loader />}
+          {/* {!tableData && <Loader />} */}
         </tbody>
       </table>
-      <PaginationBar length={tableData.length} />
+      <PaginationBar length={tableData?.length} />
     </div>
   );
 };

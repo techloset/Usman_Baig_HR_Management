@@ -16,12 +16,12 @@ export default function DefaultLayout({
   const { isSideBarOpen, setIsSideBarOpen } = useDefaultLayout();
 
   return (
-    <div className="flex min-h-screen dark:bg-primaryBlack bg-greyShade text-white">
+    <div className="flex min-h-screen bg-primaryBlack text-white">
       <Sidebar
         isSideBarOpen={isSideBarOpen}
         setIsSideBarOpen={setIsSideBarOpen}
       />
-      <div className="flex flex-col  w-full">
+      <div className="flex flex-col w-full">
         <Header
           isSideBarOpen={isSideBarOpen}
           setIsSideBarOpen={setIsSideBarOpen}
